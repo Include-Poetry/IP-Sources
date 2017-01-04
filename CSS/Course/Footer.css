@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700');
+footer{
+	position: relative;
+	float: left;
+	overflow-x: hidden;
+	min-height: 150px;
+	width: 100%;
+	background: #000;
+}
+footer a{
+	color: #808080;
+	text-decoration: none;
+}
+#PCielo{
+	display: none;
+}
+#Movile{
+	display: none;
+}
+#PCiudad{
+	position: absolute;
+	bottom: 0;
+	float: left;
+	width: 20%;
+}
+#PTextos{
+	position: relative;
+	top: 12px;
+	float: left;
+	margin-left: 28%;
+	width: 72%;
+	color: #fff;
+	font-family: 'Kalam'
+}
+#PTextos a{
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+#PTextos a:hover{
+	padding-left: 10px;
+}
+.PBloque{
+	float: left;
+	margin-right: 8%;
+	max-width: 12%;
+}
+#PBUltimo{
+	margin-right: 0;
+}
+.PTitulo{
+	font-size: 1.2em;
+}
+.PTexto a{
+	display: block;
+	font-size: .8em;
+}
+#PFirma{
+	position: relative;
+	z-index: 2;
+	display: inline-block;
+	margin-top: 30px;
+	width: 100%;
+	color: #fff;
+	text-align: center;
+	font-size: .8em;
+	font-family: 'Kalam';
+}
+#PIzq{
+	float: right;
+	margin-right: 5%;
+	width: 14%;
+	font-size: .8em
+}
+#PLogoB{
+	width: 100%;
+}
+#PGit{
+	width: 70px;
+}
+
+@media only screen and (max-width: 770px){
+	#PCiudad{
+		display: none;
+	}
+	.PTitulo{
+		font-size: .9em;
+	}
+	footer{
+		min-height: 130px;
+	}
+	#PTextos{
+		margin-left: 8%;
+		width: 92%
+	}
+	#PIzq{
+		font-size: .7em;
+	}
+}
+@media only screen and (max-width: 420px){
+	#PCiudad, #PTextos{
+		display: none;
+	}
+	#PCielo{
+		display: block;
+	}
+	footer{
+		min-height: 50px;
+	}
+	#Movile{
+		display: block;
+		margin-top: 10px;
+		color: #fff;
+		text-align: center;
+		font-size: .8em;
+		font-family: 'Kalam';
+	}
+	#PFirma{
+		box-sizing: border-box;
+		margin:0;
+		margin-top: 10px;
+		padding: 0 20px;
+		width: 100%;
+		font-size: .7em;
+	}
+}

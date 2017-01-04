@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700');
+
+#main{
+	margin-bottom: 0;
+	height: 300%;
+}
+.CTexto{
+    padding: 60px;
+	color: #fff;
+    text-align: center;
+}
+.Panoramica{
+    margin: 0;
+    width: 100%;
+    height: calc(100%/3);
+	background-color: rgba(0,0,0,.8);
+    background-attachment: fixed;
+    background-position: 50% 50%;
+    background-size: cover;
+    color: #fff;
+}
+#Intro{
+	background-image: url('../../Multimedia/Fondos/21.jpg');
+}
+.TPrin{
+	float: right;
+	padding-top: 8%;
+	padding-right: 5%;
+	color: #000;
+	font-size: 4em;
+	font-family: 'Kalam', cursive;
+}
+#P1{
+    background-image: url('../../Multimedia/Fondos/22.jpg');
+}
+.ADSitio{
+	float: left;
+	overflow: auto;
+	box-sizing: border-box;
+	padding-top: 15%; 
+	padding-right: 3em;
+	padding-left: 3em;
+	width: 50%;
+	height: 100%;
+	background: rgba(255,255,255,.8);
+	color: #000;
+	text-align: justify;
+	font-size: 1.2em;
+	font-family: 'Kalam', cursive;
+	opacity: 0;
+}
+
+.ADSitio span{
+	font-size: 3em;
+	font-family: 'Kalam', cursive;
+}
+#P2{
+    background-image: url('../../Multimedia/Fondos/23.jpg');
+}
+.ADDesarrollador{
+	float: right;
+	overflow: auto;
+	box-sizing: border-box;
+	margin-top: 30%;
+	padding: 2em;
+	width: 100%;
+	background: rgba(255,255,255,.8);
+	color: #000;
+	text-align: justify;
+	font-size: 1.2em;
+	font-family: 'Kalam', cursive;
+	opacity: 0;
+}
+
+.ADDesarrollador span{
+	font-size: 3em;
+	font-family: 'Kalam', cursive;
+}
+.Columna{
+	float: left;
+	width: 50%;
+	height: 100%;
+	background-repeat: repeat;
+}
+
+@media only screen and (max-width: 768px){
+	.TPrin{
+		padding-top: 20%;
+		color: #000;
+		text-align: center;
+		font-size: 2.5em;
+		font-family: 'Kalam', cursive;
+	}
+	.ADSitio{
+		margin-top: 30px; 
+		padding-right: 1.5em;
+		padding-bottom: 20px;
+		padding-left: 1.5em;
+		width: 100%;
+		height: auto;
+		text-align: left;
+		font-size: .8em;
+	}
+	.ADDesarrollador{
+		margin-top: 50px;
+		padding: 2em;
+		width: 100%;
+		text-align: left;
+		font-size: .8em;
+	}
+	.Panoramica, .FondoAD{
+		background-attachment: scroll;
+	}
+	#TextoAD{
+		margin-left: 5%;
+		width: 90%;
+	}
+}

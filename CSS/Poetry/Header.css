@@ -1,0 +1,68 @@
+header{
+	width: 100%;
+	border-bottom: 2px solid #D2D3D5;
+	background: #fcfcfc;
+}
+#HMain{
+	min-height: 144px;
+}
+#HPost{
+	padding-bottom: 10px;
+	height: auto;
+}
+.HOficial{
+	position: fixed;
+	z-index: 9999999;
+}
+.HFalso{
+	color: #fcfcfc;
+}
+header section{
+	text-align: center;
+	font-size: 4em;
+}
+header h4{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	color: #96989A;
+	text-align: center;
+	font-weight: normal;
+	font-size: 1.5em;
+	font-family: 'Inconsolata', 'Consolas';
+}
+#HPost > span{
+	display: inline-block;
+	margin-top: 0;
+	padding: 5px 0;
+	width: 100%;
+	border-bottom: 1px solid #D2D3D5;
+	color: #D2D3D5;
+	text-align: center;
+	font-size: .7em;
+	font-family: 'Kalam', cursive;
+}
+
+.Inco{
+	font-family: 'Inconsolata', 'Consolas';
+}
+.Fre{
+	font-family: 'Freehand', 'Freehand521 BT', cursive;
+}
+.Kau{
+	font-family: 'Kaushan Script', cursive;
+}
+
+@media only screen and (max-width: 768px){
+	header h4{
+		margin-top: 0px;
+		font-size: 1em;
+	}
+	#HMain{
+		box-sizing: border-box;
+		padding-bottom: 15px;
+		min-height: 92px;
+	}
+	header section{
+		font-size: 2em;
+	}
+}

@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+@import url('https://fonts.googleapis.com/css?family=Kalam:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300,400');
+@import url('https://fonts.googleapis.com/css?family=Inconsolata');
+@font-face {
+	font-weight: normal;
+	font-family: Freehand;
+	src: url(../Fuentes/Freehand.ttf), url(../Fuentes/Freehand.eot);
+}
+
+#main{
+	position: relative;
+	right: 0;
+	left: 0;
+	margin: 0;
+	max-width: 100%;
+	width: 100%;
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+}
+
+#main a:not(.TagPost){
+	color: #000;
+	text-decoration: none;
+	font-family: 'Kalam', cursive;
+}
+#main a:not(.TagPost):after{
+	padding-left: 3px;
+	content: '\f08e';
+	font-size: 0.7em;
+	font-family: FontAwesome;
+}
+#main a:not(.TagPost):hover{
+	text-decoration: underline;
+}
+
+/* Título principal */
+#TituloIP{
+	position: relative;
+	top: 30%;
+	text-align: center;
+	font-size: 6.25em;
+	font-family: 'Inconsolata', monospace;
+}
+#TituloIP i, #TituloIP m, #TituloIP n{
+	-webkit-transition: all 0.4s linear;
+	-moz-transition: all 0.4s linear;
+	-o-transition: all 0.4s linear;
+	-ms-transition: all 0.4s linear;
+	transition: all 0.4s linear;
+}
+cur{
+	font-family: 'Freehand', 'Freehand521 BT', cursive;
+}
+/* Fin de título principal */
+#IntroGrl{
+	position: relative;
+	top: 30%;
+	display: none;
+	float: left;
+	margin-top: 10px;
+	padding-left: 5%;
+	padding-right: 5%;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+	font-size: 1em;
+	font-family: 'Inconsolata', 'Consolas', monospace;
+}
+
+@media only screen and (max-width: 768px){
+	#main{
+		background-attachment: scroll;
+	}
+	#TituloIP{
+		margin: auto;
+		width: 340px;
+		height: 300px;
+		font-size: 1em;
+	}
+	#TituloIP i{
+		position: relative;
+		top: -20px;
+		float: left;
+		margin-right: 15px;
+		font-size: 10em;
+	}
+	#TituloIP n{
+		float: left;
+		font-size: 4em;
+	}
+	#TituloIP m{
+		float: left;
+		font-size: 4em;
+		line-height: .8em;
+	}
+}
+
+@media only screen and (max-width: 425px){
+	#TituloIP{
+		width: 260px;
+		height: auto;
+		top: 25%;
+	}
+	#IntroGrl{
+		top: 25%;
+		font-size: .9em;
+		background: rgba(255,255,255,0.6);
+	}
+	#TituloIP i{
+		font-size: 8em;
+	}
+	#TituloIP n{
+		font-size: 3em;
+	}
+	#TituloIP m{
+		font-size: 3em;
+	}
+}

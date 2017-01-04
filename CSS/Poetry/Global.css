@@ -1,0 +1,455 @@
+@import 'https://fonts.googleapis.com/css?family=Inconsolata:400,700';
+@import 'https://fonts.googleapis.com/css?family=Kalam:400,700';
+@import 'https://fonts.googleapis.com/css?family=Kaushan+Script';
+@import 'https://fonts.googleapis.com/css?family=Roboto+Condensed:300i,400,700';
+@import 'https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz';
+@font-face {
+	font-weight: normal;
+	font-family: Freehand;
+	src: url(../Fuentes/Freehand.ttf), url(../Fuentes/Freehand.eot);
+}
+
+/* Contenedores principales */
+html{
+	background-color: #fcfcfc;
+}
+body{
+	margin: 0;
+}
+body > section{
+	overflow-y: hidden;
+	margin-bottom: 60px;
+	min-height: 100%;
+	max-width: 100%;
+}
+body > section article{
+	margin-left: 10%;
+	padding-top: 20px;
+	width: 80%;
+}
+/* Fin de contenedores principales */
+
+/* Loader */
+.Pre-fondo{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999999999;
+	width: 100%;
+	height: 100%;
+	background: rgb(250,250,250);
+}
+.Pre-img{
+	position: fixed;
+	top: 50%;
+	left:50%;
+	z-index: 9999999999999;
+	margin-top: -100px;
+	margin-left: -100px;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	background: url('../../Multimedia/Loading/Infinito.gif') no-repeat center;
+	background-size: cover;
+}
+/* Fin de loader */
+
+/* Formatos básicos de texto */
+h1, h2, h3, h4, h5{
+	font-weight: normal;
+	font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+h1{
+	color: #000;
+	font-size: 2.5em;
+}
+h2{
+	color: #2e2e30;
+	font-size: 2em;
+}
+h3{
+	color: #49494d;
+	font-size: 1.5em;
+}
+p{
+	margin: 10px 0;
+	font-size: 1.2em;
+	font-family: 'Roboto Condensed',sans-serif;
+}
+p span{
+	font-size: 1em;
+	font-family: 'Kalam', cursive;
+}
+a{
+	color: #000;
+	text-decoration: none;
+	font-family: 'Kalam', cursive;
+}
+body > section p a:after,
+body > section ul:not(.ListaTags) a:after,
+body > section ol a:after{
+	content: ' \f08e';
+	font-size: .7em;
+	font-family: "FontAwesome";
+}
+p a:hover, ul a:hover, ol a:hover{
+	text-decoration: underline;
+}
+a[data-lightbox]:after{
+	content: none;
+}
+code{ 
+	display: inline-block;
+	margin: 0px 2px;
+	padding: 0 5px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	background-color: #f8f8f8;
+	font-size: 1em;
+	font-family: 'Inconsolata', 'Consolas';
+}
+/* Fin de formatos básicos de texto */
+
+/* Listas ordenadas y desordenadas */
+ul{
+	padding-left: 1em;
+	font-size: 1.2em;
+	font-family: 'Roboto Condensed',sans-serif;
+	line-height: 1.5em;
+}
+ul ul{
+	font-size: 1em;
+}
+ol{
+	font-size: 1.2em;
+	font-family: 'Roboto Condensed',sans-serif;
+	line-height: 1.5em;
+}
+ol ol{
+	font-size: 1em;
+}
+/* Fin de listas ordenadas y desordenadas */
+
+/* Imágenes y videos */
+img{
+	position: relative;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	max-width: 100%;
+}
+/* Fin de imágenes y videos */
+
+/* Citas */
+blockquote {
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  border-left: 10px solid #ccc;
+  background: #f9f9f9;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote p {
+  display: inline;
+}
+/* Fin de citas */
+
+/* Lista de definiciones */
+dl {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    padding-top: 15px;
+	width: 80%;
+    font-size: 1.2em;
+    font-family: 'Roboto Condensed',sans-serif;
+}
+dl dt {
+    position: relative;
+    float: left;
+    clear: both;
+    padding: 3px 2% 15px 0;
+    width: 33%;
+    font-weight: bold;
+    font-style: italic;
+    font-size: .9em;
+}
+dl dd {
+    float: right;
+    margin: 0;
+    padding: 3px 0 15px 3%;
+    width: 62%;
+}
+dl:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    width: 1px;
+    border-left: 1px solid #999;
+    content: "";
+}
+dl dt:before {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    width: 30px;
+    border-top: 1px solid #999;
+    content: "";
+}
+dl dt:after {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background: #333;
+    content: "";
+}
+/* Fin de lista de definiciones */
+
+/* Tablas */
+table{
+	margin: 20px 0;
+	width: 100%;
+	border-collapse: collapse;
+	border-radius: 6px;
+	background: #F9F9F9;
+	text-align: left;
+	font-size: 1.2em;
+	font-family: 'Roboto Condensed',sans-serif;
+}
+table th{
+	padding: 10px 8px;
+	border-bottom: 2px solid #6d6d73;
+	color: #000;
+	text-align: center;
+	font-weight: bold;
+	font-size: 1em;
+}
+table td{
+	padding: 6px 8px;
+	border-bottom: 1px solid #6d6d73;
+	color: #000;
+}
+/* Fin de tablas */
+
+/* Listas de contenido */
+#ListaContenido{
+	padding-left: 20px;
+	max-width: 400px;
+	list-style: square;
+	font-size: 1em;
+	font-family: 'Roboto', sans-serif;
+}
+#ListaContenido li{
+	list-style: none;
+	line-height: 1.4em;
+	cursor: pointer;
+}
+#ListaContenido li:before{
+	padding-right: 10px;
+	content: '\f101';
+	font-family: 'FontAwesome';
+}
+/* Fin de listas de contenido */
+
+/* Definiciones de small usadas en layouts */
+body > section article > small:first-child{
+	margin-bottom: 10px;
+}
+small{
+	display: block;
+	margin: 0;
+	color: #868686;
+	font-weight: normal;
+	font-family: 'Kalam', cursive;
+}
+small a{
+	color: inherit;
+}
+/* Fin de definiciones de small usadas en layouts */
+
+/* Todo sobre la lista de posts */
+#PostsList{
+	padding-left: 0;
+	list-style: none;
+}
+#PostsList li{
+	margin-bottom: 15px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid #d2d3d5;
+}
+#PostsList li p{
+	font-size: 1em;
+}
+#PostsList h2{
+	margin: 10px 0 10px 0;
+	font-size: 2em;
+	line-height: 1em;
+}
+#PostsList h2 a{
+	color: #000;
+	text-decoration: none;
+	font-family: 'Kaushan Script', cursive;
+}
+#PostsList a:after{
+	content: none;
+}
+/* Fin de todo sobre la lista de posts */
+
+/* Todo sobre tags */
+.TagPost{
+	display: inline-block;
+	margin: 3px 2px;
+	padding: 0 4px;
+	padding: 0 5px;
+	border: 1px solid #96989A;
+	border-radius: 3px;
+	background-color: #f8f8f8;
+	color: #96989A;
+	text-decoration: none;
+	font-size: 1em;
+	font-family: 'Kalam';
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+.TagPost:hover{
+	background-color: #96989A;
+	color: #f8f8f8;
+	text-decoration: none;
+}
+.TagPost:after{
+	content: none;
+}
+.ListaTags h3{
+	margin-bottom: 0;
+	font-size: 1.1em;
+}
+.ListaTags a, .ListaTags small{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+/* Fin de todo sobre tags */
+
+/* Paginación */
+.Paginacion{
+	display: inline-block;
+	width: 100%;
+	text-align: center;
+	text-decoration: none;
+	font-family: 'Kalam', cursive;
+}
+.pNone{
+	opacity: 0;
+}
+.Paginacion a{
+	color: #96989A;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+}
+.Paginacion a:hover{
+	color: #000;
+}
+/* Fin de paginación */
+
+/* Navegación pag siguiente/anterior */
+body section article nav {
+	display: block;
+	overflow: hidden;
+	margin-top: 50px;
+	padding: 5px 0;
+	width: auto;
+	border-top: 1px solid #D2D3D5;
+	font-size: 1em;
+	font-family: 'Roboto Condensed',sans-serif;
+}
+body section article nav a {
+	display: block;
+	float: left;
+	margin: 1em 0;
+	width: 50%;
+}
+body section article nav a:last-child {
+	text-align: right;
+}
+/* Navegación pag siguiente/anterior */
+
+/* Objetos pequeños */
+.footnote{
+	font-family: 'Roboto Condensed', sans-serif;
+}
+.footnote:after{
+	content: none;
+}
+.footnotes{
+	color: #6d6d73;
+	font-size: .7em;
+}
+.reversefootnote:after{
+	content: none;
+}
+.ancla:before {
+	display: block;
+	visibility: hidden;
+	margin-top: -180px;
+	height: 180px;
+	content: " ";
+}
+/* Fin de objetos pequeños */
+
+@media only screen and (max-width: 768px){
+	body > section article{
+		padding-top: 20px;
+	}
+	p, ul, ol, dl, table{
+		font-size: 1em;
+	}
+	ul li, ol li{
+		line-height: 1.2em;
+	}
+	h1{
+		font-size: 2em;
+	}
+	h2{
+		font-size: 1.6em;
+	}
+	h3{
+		font-size: 1.3em;
+	}
+	p a:after, ul:not(.ListaTags) a:after, ol a:after{
+		font-size: .7em;
+	}
+	dl{
+		width: 100%;
+	}
+	.TagPost{
+		font-size: .8em;
+	}
+	#PostsList h2{
+		font-size: 1.5em;
+	}
+	#ListaContenido{
+		padding-left: 10px;
+		font-size: 0.9em;
+	}
+	body section article nav{
+		font-size: .8em;
+	}
+	.footnotes{
+		font-size: .8em;
+	}
+	.ancla:before {
+		display: block;
+		visibility: hidden;
+		margin-top: -92px;
+		height: 92px;
+		content: " ";
+	}
+}

@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i');
+#NavUl a, #IconosMenu a{
+	text-decoration: none;
+}
+#IconosMenu{
+	position: fixed;
+	top: 16px;
+	left: 0;
+	z-index: 1000000;
+	width: 100%;
+}
+#LogoMenuN, #LogoMenuB, #LMN, #LMB{
+	position: absolute;
+	left: 20px;
+	height: 30px;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+#LMN, #LMB{
+	display: none;
+}
+#MenuBars{
+	position: absolute;
+	right: 20px;
+	width: 30px;
+	height: 25px;
+	cursor: pointer;
+}
+#MenuBars em{
+    position: absolute;
+    top: 10px;
+    left: 0;
+	display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: #000;
+    -webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+#MenuBars em:first-child{
+	top: 0px;
+}
+#MenuBars em:last-child{
+	top: 20px;
+}
+
+nav:not(#IconosMenu){
+	position: fixed;
+	top: -18px;
+	left: 0;
+	z-index: 999999;
+	display: none;
+	overflow: hidden;
+	min-height: 70px;
+	width: 100%;
+	background-color: #000;
+}
+nav ul{
+	position: relative;
+	top: 15px;
+	margin: 0 auto;
+	padding: 0;
+	min-height: 70px;
+	width: 60%;
+	list-style: none;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1.4px;
+	font-size: 0.7em;
+	font-family: 'Roboto', sans-serif;
+}
+nav ul a, nav ul i{
+	padding: 0 25px;
+	color: #fff;
+	-webkit-transition: all 0.2s linear;
+	-moz-transition: all 0.2s linear;
+	-ms-transition: all 0.2s linear;
+	-o-transition: all 0.2s linear;
+	transition: all 0.2s linear;
+}
+nav ul i{
+	margin-left: -20px;
+	padding: 0;
+	padding-right: 20px;
+}
+nav ul:after{
+    display: inline-block;
+    visibility: hidden;
+    width: 100%;
+    height: 0;
+    content: ".";
+}
+nav ul li{
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 70px;
+}
+nav ul:not(#MainUl){
+	display: none;
+}
+#foodiv{
+	position: fixed;
+	z-index: 100;
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+@media only screen and (min-width: 768px){
+	nav ul:hover a, nav ul:hover i{
+		color: #969696;
+	}
+	nav ul li:hover a, nav ul li:hover i{
+		color: #fff;
+	}
+}
+
+@media only screen and (max-width: 425px){
+	#LMN, #LMB{
+		display: block;
+	}
+	#LogoMenuN, #LogoMenuB{
+		display: none;
+	}
+	#LogoMenuN, #LogoMenuB, #LMN, #LMB{
+		left: 15px;
+	}
+	#MenuBars{
+		right: 15px;
+	}
+	nav:not(#IconosMenu){
+		top: -10px;
+	}
+	nav ul{
+		top: 18px;
+		width: 76%;
+	}
+	nav ul li{
+		box-sizing: border-box;
+		min-width: 50%;
+		line-height: 40px;
+	}
+	nav ul li:last-child{
+		padding-bottom: 18px;
+	}
+}
