@@ -148,7 +148,6 @@ blockquote p{
 
 /* Imagenes */
 #main img{
-	margin-left: 10%;
 	max-width: 80%;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	-webkit-filter: grayscale(100%);
@@ -168,6 +167,13 @@ blockquote p{
 	-o-filter: grayscale(0%);
 	-ms-filter: grayscale(0%);
 	filter: grayscale(0%);
+}
+#main a[data-lightbox]{
+	text-align: center;
+}
+#main a[data-lightbox] picture{
+	display: block;
+	width: 100%;
 }
 /* fin imagenes */
 
