@@ -69,7 +69,7 @@ $("#MenuBars").click(function() {
 });
 
 
-$("nav ul li i").click(function() {
+$("nav ul li").click(function() {
 	var aparece = '#'
 	aparece += $(this).data("son");
 	var padre = $(this).parents('ul').attr('id');
