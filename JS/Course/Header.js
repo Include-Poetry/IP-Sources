@@ -1,14 +1,14 @@
 var bandera1 = true;
+var pila = [];
+var indice = 0;
 
 $("#MenuBars").click(function() {
 	var NavDis = $('#NavUl').css('display') == 'block';
 	var FooDis = $('#foodiv').css('display') == 'block';
 
-	if(!NavDis && !FooDis){
-		$('#foodiv').fadeIn('fast');
-	}
 	if(NavDis && FooDis){
 		$('#foodiv').fadeOut('fast');
+		$('#main').removeClass('blur');
 	}
 
 	var degree1, degree2, top1, top2, opx, bgc;
@@ -73,26 +73,33 @@ $("nav ul li").click(function() {
 	var aparece = '#'
 	aparece += $(this).data("son");
 	var padre = $(this).parents('ul').attr('id');
+
+	pila[indice] = padre;
+	indice += 1;
+	pila[indice] = $(this).data("son");
+
 	if (aparece != '#undefined'){
 		$("#" + padre).fadeOut('slow', function() {
 			$(aparece).fadeIn();
 		});
 	}
-});
-
-$("#NavUl").hover(function() {
-	$('#foodiv').fadeIn();
-});
-
-$("#foodiv").click(function() {
-	$('#foodiv').fadeOut('fast');
-
-	var MainEstado = $('#MainUl').css('display');
-	if (MainEstado == 'none'){
-		$('nav ul').not('#MainUl').fadeOut('fast', function(){
-			setTimeout(function(){
-				$('#MainUl').fadeIn('slow');
-			},200);
-		});
+	if ($('#foodiv').css('display') != 'block'){
+		$('#foodiv').fadeIn('fast');
+		$('#main').addClass('blur');
 	}
+});
+
+$("#foodiv").click(function() {	
+	var nuevo = pila[indice-1];
+	var muere = pila[indice];
+	indice -= 1;
+
+	if (nuevo == 'MainUl'){
+		$('#foodiv').fadeOut('fast');
+		$('#main').removeClass('blur');
+	}
+	
+	$('#' + muere).fadeOut('slow', function(){
+		$('#' + nuevo).fadeIn('slow');
+	});
 });
