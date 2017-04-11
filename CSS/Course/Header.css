@@ -76,7 +76,7 @@ nav ul{
 	font-size: 0.7em;
 	font-family: 'Roboto', sans-serif;
 }
-nav ul a, nav ul i{
+nav ul a, nav ul span, nav ul i{
 	padding: 0 25px;
 	color: #fff;
 	-webkit-transition: all 0.2s linear;
@@ -84,6 +84,7 @@ nav ul a, nav ul i{
 	-ms-transition: all 0.2s linear;
 	-o-transition: all 0.2s linear;
 	transition: all 0.2s linear;
+	cursor: pointer;
 }
 nav ul i{
 	margin-left: -20px;
@@ -113,12 +114,23 @@ nav ul:not(#MainUl){
 	width: 100%;
 	height: 100%;
 }
+#foodiv h3{
+	text-align: center;
+}
+
+.blur{
+	-webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -ms-filter: blur(1px);
+    -o-filter: blur(1px);
+    filter: blur(1px);
+}
 
 @media only screen and (min-width: 768px){
-	nav ul:hover a, nav ul:hover i{
+	nav ul:hover a, nav ul:hover span, nav ul:hover i{
 		color: #969696;
 	}
-	nav ul li:hover a, nav ul li:hover i{
+	nav ul li:hover a, nav ul li:hover span, nav ul li:hover i{
 		color: #fff;
 	}
 }

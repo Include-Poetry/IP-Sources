@@ -38,12 +38,13 @@ $('#ListaContenido li').click(function(event) {
 		}
 	}
 	// Normalizamos los id's, pasando a minúscula
-	// Quitando caracteres especiales y poniendo guines
+	// Quitando caracteres especiales y poniendo guiones
 	var GotoNormal = $(this).text();
 	var GotoManual = $(this).attr('link');
 	var Goto = '';
 	if (GotoManual == null){
-		Goto = GotoNormal.toLowerCase().replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
+		// .replace(/[^a-z0-9-\s]/gi, '')
+		Goto = GotoNormal.toLowerCase().replace(/[_\s]/g, '-');
 	} else {
 		Goto = GotoManual.replace(/[^a-z0-9-\s]/gi, '').replace(/[_\s]/g, '-');
 	}
