@@ -74,7 +74,7 @@ function DarkMode(){
 		picsec = 'B.png';
 
 	$('h1, h2, h3, h4, h5, h6, h2 a').css('color', blanco);
-	$('p, ul, ol, #main p a:not(.TagPost), .Nav a, #ComentAct h2').css('color', blanco2);
+	$('p, ul, ol, #main p a:not(.TagPost), .Nav a, #ComentAct h2, .MJXc-display').css('color', blanco2);
 	$('html').css('background-color', oscuro1);
 	$('.CajaComent').css('background-color', comentarios);
 	$('blockquote').css('border-left-color', blanco);
