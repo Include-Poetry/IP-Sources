@@ -73,12 +73,12 @@ function DarkMode(){
 		picori = 'N.png',
 		picsec = 'B.png';
 
-	$('h1, h2, h3, h4, h5, h6').css('color', blanco);
+	$('h1, h2, h3, h4, h5, h6, h2 a').css('color', blanco);
 	$('p, ul, ol, #main p a:not(.TagPost), .Nav a, #ComentAct h2').css('color', blanco2);
 	$('html').css('background-color', oscuro1);
 	$('.CajaComent').css('background-color', comentarios);
 	$('blockquote').css('border-left-color', blanco);
-	$('code').css({
+	$('code, .TagPost').css({
 		'background-color': oscuro2,
 		'border-color': oscuro3,
 	});
@@ -102,7 +102,9 @@ var n = d.getHours();
 
 if (n > 18 || n < 7){
 	sigue = false;
-	DarkMode();
+	if (! $('#TituloIP').is(':visible')){
+		DarkMode();
+	}
 }
 
 var end_counter = function() {
