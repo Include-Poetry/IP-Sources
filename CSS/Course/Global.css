@@ -14,6 +14,14 @@ html{
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
+p, ul, ol, #main p a:not(.TagPost), .Nav a, 
+h1, h2, h3, h4, h5, h6, html, blockquote,
+code, table, table tr:nth-child(even){
+	-webkit-transition: all 1s linear;
+	-moz-transition: all 1s linear;
+	-o-transition: all 1s linear;
+	transition: all 1s linear;
+}
 body{
 	margin: 0;
 	font-size: 100%;
@@ -57,7 +65,7 @@ s{
 	font-weight: lighter;
 	font-family: 'Kalam', cursive;
 }
-#main p span{
+#main p > span{
 	font-weight: lighter;
 	font-family: 'Kalam', cursive;
 }
