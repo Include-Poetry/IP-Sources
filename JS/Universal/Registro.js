@@ -1,6 +1,5 @@
 $(document).ready(function() {
 	$('#RegisterForm').validate({
-		debug: true,
 		rules:{
 			RNombre: {
 				required: true,
@@ -89,16 +88,24 @@ $(document).ready(function() {
 				});
 				user.sendEmailVerification();
 				var s_user = user.uid;
+
+				var nombre = $('#RNombre').val(),
+					apellido = $('#RApellidos').val(),
+					usuario = $('#RUsuario').val(),
+					tipoUsuario = $('#RTipo option:selected').text();
+
 				firebase.database().ref('users/' + s_user).set({
-					f_name: $("#RNombre").val(),
-					l_name: $("#RApellidos").val(),
-					email: $("#REmail").val(),
-					user: $('#RUsuario').val(),
-					user_t: $('#RTipo').val()
+					f_name: nombre,
+					l_name: apellido,
+					user_iP: usuario,
+					user_t: tipoUsuario
 				});
+				console.log('Creación exitosa de usuario');
+
 				setTimeout(function () {
-					window.location.replace("https:www.include-poetry.com");
-				}, 5000);
+					console.log('Redirigiendo...');
+					window.location.href = "https://www.include-poetry.com";
+				}, 9000);
 			}).catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
@@ -110,7 +117,7 @@ $(document).ready(function() {
 						});
 					});
 				}
-				
+					
 				switch(errorCode){
 					case 'auth/email-already-in-use':
 						$('#RFErrD').html('El correo ingresado ya está registrado');
