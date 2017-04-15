@@ -107,18 +107,20 @@ $(document).ready(function() {
 				});
 				var errorCode = error.code;
 				var errorMessage = error.message;
+				console.log(errorCode);
+				
 				switch(errorCode){
 					case 'auth/email-already-in-use':
-						$('#RFErrD').val('El correo ingresado ya está registrado');
+						$('#RFErrD').html('El correo ingresado ya está registrado');
 						break;
 					case 'auth/invalid-email':
-						$('#RFErrD').val('El correo no es válido');
+						$('#RFErrD').html('El correo no es válido');
 						break;
 					case 'auth/operation-not-allowed':
-						$('#RFErrD').val('Operación inválida');
+						$('#RFErrD').html('Operación inválida');
 						break;
 					case 'auth/weak-password':
-						$('#RFErrD').val('Contraseña muy débil');
+						$('#RFErrD').html('Contraseña muy débil');
 						break;
 				}
 			});
