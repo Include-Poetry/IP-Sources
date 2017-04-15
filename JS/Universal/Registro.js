@@ -97,17 +97,19 @@ $(document).ready(function() {
 					user_t: $('#RTipo').val()
 				});
 				setTimeout(function () {
-					window.location.href = "https:www.include-poetry.com";
+					window.location.replace("https:www.include-poetry.com");
 				}, 5000);
 			}).catch(function(error) {
-				$("#RegisterForm, #RFDefP").fadeOut('slow', function() {
-					$('#RFErrT').fadeIn('slow', function(){
-						$('#RFErrP, #RFErrD').fadeIn('slow');
-					});
-				});
 				var errorCode = error.code;
 				var errorMessage = error.message;
-				console.log(errorCode);
+
+				if (errorCode){
+					$("#RegisterForm, #RFDefP").fadeOut('slow', function() {
+						$('#RFErrT').fadeIn('slow', function(){
+							$('#RFErrP, #RFErrD').fadeIn('slow');
+						});
+					});
+				}
 				
 				switch(errorCode){
 					case 'auth/email-already-in-use':
