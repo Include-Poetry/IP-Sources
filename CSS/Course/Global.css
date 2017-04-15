@@ -523,6 +523,62 @@ form{
 }
 /* Fin de formulario de contacto */
 
+/* Formato de registro */
+#RFGraT, #RFGraP, #RFErrT, #RFErrP, #RFErrD{
+	display: none;
+}
+#RegisterForm{
+	width: 100%;
+	box-sizing: border-box;
+}
+#RegisterForm label{
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.1em;
+	padding-right: 20px;
+}
+#RegisterForm span{
+	font-weight: lighter;
+	font-family: 'Kalam', cursive;
+	color: #f00;
+}
+#RegisterForm input, #RegisterForm select{
+	margin-bottom: 20px;
+	margin-top: 5px;
+	padding: 10px 5px;
+	width: 100%;
+	border: none;
+	border-top: 1px solid #D2D3D5;
+	border-bottom: 1px solid #D2D3D5;
+	font-size: 1em;
+	font-family: 'Kalam', cursive;
+	box-sizing: border-box;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+#RegisterForm #REnviar{
+	box-sizing: border-box;
+	margin: 0 auto;
+	margin-left: calc(50% - 75px);
+	padding: 7px 0;
+	width: 150px;
+	border: 1px solid #ddd;
+	background-color: #f8f8f8;
+	font-size: 1em;
+	font-family: 'Kalam', cursive;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease-in-out 0s;
+	-moz-transition: all 0.3s ease-in-out 0s;
+	-o-transition: all 0.3s ease-in-out 0s;
+	-ms-transition: all 0.3s ease-in-out 0s;
+	transition: all 0.3s ease-in-out 0s;
+	-webkit-appearance: none; -moz-appearance: none;
+}
+#RegisterForm #REnviar:hover{
+	background-color: #000;
+	color: #f8f8f8;
+}
+/* Fin formato de registro */
+
 .container-tab1{
 	width: auto;
 }
@@ -680,5 +736,8 @@ code{
 	.BuscarMin #BMinS{
 		height: 25px;
 		text-align: center;
+	}
+	#RegisterForm, #RegisterForm input, #RegisterForm select{
+		font-size: 1em;
 	}
 }
