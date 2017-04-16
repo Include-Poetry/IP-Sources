@@ -1,4 +1,20 @@
 $(document).ready(function() {
+	jQuery.validator.addMethod('uniqueuser', function(value, element){
+		var target = firebase.database().ref('usernames');
+		target.once('value').then(function(snapshot){
+			var existe = snapshot.child(value).exists();
+			console.log(!existe);
+			if(!existe){
+				$('#foouser').val('verdadero');
+			} else {
+				$('#foouser').val('falso');
+			}
+		});
+		var temp = $('#foouser').val();
+		console.log(temp);
+		return temp == 'verdadero';
+	}, 'El usuario ya ha sido ocupado');
+
 	$('#RegisterForm').validate({
 		rules:{
 			RNombre: {
@@ -16,6 +32,7 @@ $(document).ready(function() {
 				required: true,
 				minlength: 5,
 				maxlength: 20,
+				uniqueuser: true
 			},
 			REmail: {
 				required: true,
@@ -50,7 +67,7 @@ $(document).ready(function() {
 				alphanumeric: 'Sólo letras, números y guiones bajos',
 				required: 'Campo obligatorio',
 				minlength: 'Mínimo 5 caracteres',
-				maxlength: 'Máximo 20 caracteres',
+				maxlength: 'Máximo 20 caracteres'
 			},
 			REmail: {
 				required: 'Campo obligatorio',
@@ -100,12 +117,26 @@ $(document).ready(function() {
 					user_iP: usuario,
 					user_t: tipoUsuario
 				});
+
+				var validarUsuario = firebase.database().ref('usernames');
+				validarUsuario.child(usuario).set(s_user)
+					.then(function(){
+						console.log('Usuario registrado correctamente');
+					}).catch(function(error){
+						console.log('Error en registro de username');
+						console.log(error.code);
+					});
+
+				$('html, body').animate({
+					scrollTop: 0
+				}, 400);
+
 				console.log('Creación exitosa de usuario');
 
 				setTimeout(function () {
 					console.log('Redirigiendo...');
 					window.location.href = "https://www.include-poetry.com";
-				}, 9000);
+				}, 6000);
 			}).catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
