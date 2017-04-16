@@ -524,24 +524,24 @@ form{
 /* Fin de formulario de contacto */
 
 /* Formato de registro */
-#RFGraT, #RFGraP, #RFErrT, #RFErrP, #RFErrD{
+#RFGraT, #RFGraP, #RFErrT, #RFErrP, #RFErrD, #LFErrT{
 	display: none;
 }
-#RegisterForm{
+#RegisterForm, #LoginForm{
 	width: 100%;
 	box-sizing: border-box;
 }
-#RegisterForm label{
+#RegisterForm label, #LoginForm label{
 	font-family: 'Roboto', sans-serif;
 	font-size: 1.1em;
 	padding-right: 20px;
 }
-#RegisterForm span{
+#RegisterForm span, #LoginForm span{
 	font-weight: lighter;
 	font-family: 'Kalam', cursive;
 	color: #f00;
 }
-#RegisterForm input, #RegisterForm select{
+#RegisterForm input, #RegisterForm select, #LoginForm input{
 	margin-bottom: 20px;
 	margin-top: 5px;
 	padding: 10px 5px;
@@ -555,7 +555,7 @@ form{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 }
-#RegisterForm #REnviar{
+#RegisterForm #REnviar, #LoginForm #LEnviar{
 	box-sizing: border-box;
 	margin: 0 auto;
 	margin-left: calc(50% - 75px);
@@ -571,7 +571,12 @@ form{
 	-o-transition: all 0.3s ease-in-out 0s;
 	-ms-transition: all 0.3s ease-in-out 0s;
 	transition: all 0.3s ease-in-out 0s;
-	-webkit-appearance: none; -moz-appearance: none;
+	-webkit-appearance: none; 
+	-moz-appearance: none;
+}
+#RegisterForm #REnviar{
+	margin-top: 50px;
+	display: block;
 }
 #RegisterForm #REnviar:hover{
 	background-color: #000;
@@ -737,7 +742,7 @@ code{
 		height: 25px;
 		text-align: center;
 	}
-	#RegisterForm, #RegisterForm input, #RegisterForm select{
-		font-size: 1em;
+	#RegisterForm, #RegisterForm label, #RegisterForm input, #RegisterForm select{
+		font-size: 0.9em;
 	}
 }
