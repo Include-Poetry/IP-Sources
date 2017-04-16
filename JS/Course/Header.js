@@ -13,6 +13,8 @@ $("#MenuBars").click(function() {
 
 	var degree1, degree2, top1, top2, opx, bgc;
 
+	var darkside = $('html').css('background-color') != 'rgb(252, 252, 252)';
+	
 	if(bandera1){
 		degree1 = 45;
 		degree2 = 135;
@@ -27,6 +29,7 @@ $("#MenuBars").click(function() {
 		top2 = '20px';
 		opx = '1';
 		bgc = '#000'; //373b37
+		if (darkside) {bgc = '#fff';}
 		bandera1 = true;
 	}
 
