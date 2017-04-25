@@ -79,10 +79,10 @@ function app(opts) {
 
   search.addWidget(
     instantsearch.widgets.refinementList({
-      container: '#categorias',
-      attributeName: 'categories',
+      container: '#olimpiada',
+      attributeName: 'olimpiada',
       templates: {
-        header: getHeader('Categorias'),
+        header: getHeader('Olimpiada'),
       },
     })
   );
