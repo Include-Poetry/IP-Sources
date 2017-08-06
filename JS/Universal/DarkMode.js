@@ -40,7 +40,7 @@ var running = false,
 var d = new Date();
 var n = d.getHours();
 
-if (n > 18 || n < 7){
+if (n > 19 || n < 7){
 	sigue = false;
 	DarkMode();
 }
