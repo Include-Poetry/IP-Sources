@@ -1,41 +1,23 @@
 app({
-  appId: 'QO0HGR5828',
-  apiKey: 'eb04fe369bec3b6b078e4eb51ea48ae6', 
-  indexName: 'IPCode',
+  appId: 'QC3QNXU3KT',
+  apiKey: '003f676acec1b6c92cad56ea7dc12237', 
+  indexName: 'MainIndexIPN',
 });
 
 function app(opts) {
   const search = instantsearch({
-    appId: opts.appId,
-    apiKey: opts.apiKey,
-    indexName: opts.indexName,
+    appId: 'QC3QNXU3KT',
+    apiKey: '003f676acec1b6c92cad56ea7dc12237', 
+    indexName: 'MainIndexIPN',
     urlSync: false,
   });
 
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-input',
-      placeholder: 'Busca en Include Code',
+      placeholder: 'Busca en Include Notes',
     })
   );
-
-/*  search.addWidget(
-    instantsearch.widgets.hits({
-      container: '#hits',
-      hitsPerPage: 10,
-      templates: {
-        item: getTemplate('hit'),
-        empty: getTemplate('no-results'),
-      },
-    })
-  );
-  search.addWidget(
-    instantsearch.widgets.pagination({
-      container: '#pagination',
-      scrollTo: '#search-input',
-    })
-  );
-*/
 
   search.addWidget(
     instantsearch.widgets.infiniteHits({

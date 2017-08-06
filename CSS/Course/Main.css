@@ -54,11 +54,10 @@
 cur{
 	font-family: 'Freehand', 'Freehand521 BT', cursive;
 }
-/* Fin de título principal */
+/* Descripción general */
 #IntroGrl{
 	position: relative;
 	top: 30%;
-	display: none;
 	float: left;
 	margin-top: 10px;
 	padding-left: 5%;
@@ -69,6 +68,7 @@ cur{
 	font-size: 1em;
 	font-family: 'Inconsolata', 'Consolas', monospace;
 }
+/* Fin de título principal */
 
 @media only screen and (max-width: 768px){
 	#main{

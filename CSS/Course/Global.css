@@ -157,7 +157,9 @@ blockquote p{
 /* Imagenes */
 #main img{
 	max-width: 80%;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	display: flex;
+	margin: 0 auto;
+	/*box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);*/
 	-webkit-filter: grayscale(100%);
 	-moz-filter: grayscale(100%);
 	-o-filter: grayscale(100%);
@@ -223,6 +225,17 @@ table tr:nth-child(even) {
 	font-family: 'Roboto', sans-serif;
 	line-height: 1.4em;
 }
+#main ul a, #main ol a{
+	color: #000;
+	text-decoration: none;
+	font-family: 'Kalam', cursive;
+}
+#main ul a:after, #main ol a:after{
+	padding-left: 3px;
+	content: '\f08e';
+	font-size: 0.7em;
+	font-family: FontAwesome;
+}
 /* Fin listas */
 
 /* Listas de contenido */
@@ -261,12 +274,72 @@ table tr:nth-child(even) {
 #main #PostsList h2 a, #main .ListaTags h3 a{
 	color: #464646;
 	text-decoration: none;
+	font-family: 'Oswald', sans-serif;
+}
+#main #PostsList h2 a:after, #main .ListaTags h3 a:after{
+	content: none;
 }
 #main #PostsList p{
 	margin-top: 20px;
 	font-size: 1em;
 }
 /* Fin de lista de problemas, topicos ... */
+
+/* Lista de definiciones */
+dl {
+    position: relative;
+    overflow: hidden;
+    margin: 20px auto;
+    padding-top: 15px;
+	width: 80%;
+    font-size: 1.2em;
+    font-family: 'Roboto Condensed',sans-serif;
+}
+dl dt {
+    position: relative;
+    float: left;
+    clear: both;
+    padding: 3px 2% 15px 0;
+    width: 33%;
+    font-weight: bold;
+    font-style: italic;
+    font-size: .9em;
+}
+dl dd {
+    float: right;
+    margin: 0;
+    padding: 3px 0 15px 3%;
+    width: 62%;
+}
+dl:before {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 35%;
+    width: 1px;
+    border-left: 1px solid #999;
+    content: "";
+}
+dl dt:before {
+    position: absolute;
+    top: -5px;
+    right: -15px;
+    width: 30px;
+    border-top: 1px solid #999;
+    content: "";
+}
+dl dt:after {
+    position: absolute;
+    top: -8px;
+    right: -4px;
+    width: 5px;
+    height: 5px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background: #333;
+    content: "";
+}
+/* Fin de lista de definiciones */
 
 /* Comentarios FB */
 #ComentAct{
@@ -348,6 +421,9 @@ video{
 	background-color: #96989A;
 	color: #f8f8f8;
 	text-decoration: none;
+}
+#main .TagPost:after{
+	content: none;
 }
 #ListaTags{
 	list-style: square;
@@ -518,6 +594,20 @@ code{
 	font-size: 1em;
 	font-family: 'Inconsolata', 'Consolas', monospace;
 }
+/* Falta por configurar el DarkMode */
+kbd{
+    display: inline-block;
+    padding: 3px 5px;
+    font-size: 11px;
+    line-height: 10px;
+    color: #444d56;
+    vertical-align: middle;
+    background-color: #fafbfc;
+    border: solid 1px #c6cbd1;
+    border-bottom-color: #959da5;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0;
+}
 /* ------ Celular ------- */
 @media only screen and (max-width: 730px){
 	#ContactForm .FIzq{
@@ -552,7 +642,7 @@ code{
 	h3{
 		font-size: 1.1em;
 	}
-	p, ul li, ol, blockquote{
+	p, ul li, ol, dl, blockquote{
 		font-size: 0.9em;
 	}
 	blockquote p, #main #ListaContenido, #main ul, #main ol{
@@ -575,59 +665,6 @@ code{
 	}
 	.Nav{
 		font-size: .8em;
-	}
-	#buscar{
-		padding: 6px;
-		width: 40px;
-		font-size: 1em;
-	}
-	#search-box{
-		width: calc(100% - 42px);
-		width: -webkit-calc(100% - 42px);
-		width: -moz-calc(100% - 42px);
-		font-size: 1em;
-	}
-	#search-results{
-		margin-top: 30px;
-	}
-	.BuscarMin{
-		right: 20px;
-		bottom: 60px;
-		vertical-align: middle;
-	}
-	.Buscador{
-		width: 200px;
-	}
-	#BMinQ{
-		width: 170px;
-		height: 25px;
-		border-radius: 0;
-		font-size: 1em;
-	}
-	#BMinS{
-		width: 30px;
-		height: 20px;
-		border: none;
-		border-radius: 0;
-		font-size: .8em;
-	}
-	.BuscarMin span{
-		font-size: 21px;
-		-webkit-transition: all 0.6s ease-in-out 0s;
-		-moz-transition: all 0.6s ease-in-out 0s;
-		-o-transition: all 0.6s ease-in-out 0s;
-		-ms-transition: all 0.6s ease-in-out 0s;
-		transition: all 0.6s ease-in-out 0s;
-	}
-	.BuscarMin span:hover{
-		font-size: 26px;
-	}
-	.BuscarMin #BminQ{
-		height: 25px;
-	}
-	.BuscarMin #BMinS{
-		height: 25px;
-		text-align: center;
 	}
 	#RegisterForm, #RegisterForm label, #RegisterForm input, #RegisterForm select{
 		font-size: 0.9em;
