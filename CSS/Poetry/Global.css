@@ -39,6 +39,15 @@ body > section article{
 	height: 100%;
 	background: rgb(250,250,250);
 }
+.Pre-fondo-note{
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 99999999999;
+	width: 100%;
+	height: 100%;
+	background: rgb(255,255,255);
+}
 .Pre-img{
 	position: fixed;
 	top: 50%;
@@ -50,6 +59,19 @@ body > section article{
 	height: 200px;
 	border-radius: 200px;
 	background: url('../../Multimedia/Loading/Infinito.gif') no-repeat center;
+	background-size: cover;
+}
+.Pre-img-note{
+	position: fixed;
+	top: 50%;
+	left:50%;
+	z-index: 9999999999999;
+	margin-top: -100px;
+	margin-left: -100px;
+	width: 200px;
+	height: 200px;
+	border-radius: 200px;
+	background: url('../../Multimedia/Loading/ADNc.gif') no-repeat center;
 	background-size: cover;
 }
 /* Fin de loader */
@@ -404,15 +426,6 @@ body section article nav a:last-child {
 }
 /* Fin de objetos pequeños */
 
-/* Mathjax */
-.MathJax_Display{
-	font-size: 1.5em;
-}
-.MathJax{
-	font-size: 0.95em;
-}
-/* Fin de Mathjax */
-
 @media only screen and (max-width: 768px){
 	body > section article{
 		padding-top: 20px;
@@ -448,13 +461,6 @@ body section article nav a:last-child {
 		padding-left: 10px;
 		font-size: 0.9em;
 	}
-	.MathJax_Display{
-		font-size: 1.3em;
-	}
-	.MathJax{
-		font-size: 0.9em;
-	}
-
 	body section article nav{
 		font-size: .8em;
 	}

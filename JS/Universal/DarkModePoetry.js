@@ -16,7 +16,7 @@ function DarkModePoetry(){
 	/* --- Cuerpo del texto --- */
 	$('h1, h2, h3, h4, h5, h6, h2 a').css('color', blanco);
 	$('html').css('background-color', oscuro1);
-	$('p, p a, blockquote, ul, ol, ul a, .MJXc-display').css('color', blanco2);
+	$('p, p a, blockquote, ul, ol, dl, ul a, .MJXc-display').css('color', blanco2);
 	$('blockquote').css({
 		'background-color': '#222',
 		'border-left-color': '#666'
