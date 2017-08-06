@@ -15,7 +15,7 @@ function app(opts) {
   search.addWidget(
     instantsearch.widgets.searchBox({
       container: '#search-input',
-      placeholder: 'Busca en Include Notes',
+      placeholder: 'Busca en todas las libretas de apuntes',
     })
   );
 
