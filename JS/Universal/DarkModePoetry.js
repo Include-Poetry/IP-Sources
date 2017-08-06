@@ -61,7 +61,7 @@ var running = false,
 var d = new Date();
 var n = d.getHours();
 
-if (n > 23 || n < 7){//n > 23 || n < 7
+if (n > 19 || n < 7){
 	sigue = false;
 	DarkModePoetry();
 }
