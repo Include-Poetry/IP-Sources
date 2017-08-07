@@ -446,6 +446,7 @@ video{
 	-webkit-appearance: none; -moz-appearance: none;
 }
 #ContactForm .FElem{
+	border-style: none;
 	display: block;
 	box-sizing: border-box;
 	margin-top: 20px;
@@ -459,6 +460,7 @@ video{
 	width: 40%;
 }
 #ContactForm textarea{
+	border-style: none;
 	display: block;
 	float: left; 
 	box-sizing: border-box;

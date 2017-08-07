@@ -2,6 +2,7 @@
 function DarkMode(){
 	var blanco = '#fff',
 		blanco2 = '#ccc',
+		blanco3 = '#eee',
 		oscuro1 = '#131313',
 		comentarios = '#aaa',
 		oscuro2 = '#333',
@@ -31,6 +32,14 @@ function DarkMode(){
 	var srcMin = $('#LMN').attr("src").replace(picori, picsec);
 	$('#LMN').attr("src", srcMin);
 	$('#MenuBars em').css('background', blanco);
+
+	/* --- Formulario de contacto --- */
+	$('#ContactForm input, #ContactForm select, #ContactForm textarea').css({
+		'background-color': oscuro2,
+		'border-color': oscuro3,
+		'color': blanco2,
+	});
+	$("#ContactForm #Enviar").css('color', blanco3);
 }
 
 var running = false,
