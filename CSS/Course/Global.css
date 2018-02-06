@@ -139,10 +139,16 @@ blockquote p{
 	font-family: 'Kalam', cursive;
 }
 #main p a:not(.TagPost):after{
-	padding-left: 3px;
-	content: '\f08e';
-	font-size: 0.7em;
-	font-family: FontAwesome;
+	font-family: "Font Awesome 5 Free";
+	content: "\f35d";
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	margin-left: 0.25em;
+    font-size: .7em;
+    font-weight: 900;
 }
 #main p a:not(.TagPost):hover{
 	text-decoration: underline;
@@ -209,47 +215,56 @@ table tr:nth-child(even) {
 /* Fin tablas */
 
 /* Listas */
-#main ol{
+#main ol, #main ul{
 	max-width: 80%;
-	word-break: normal;
-	font-weight: lighter;
-	font-size: 1.3em;
-	font-family: 'Roboto', sans-serif;
-}
-#main ul{
-	max-width: 80%;
-	list-style: square;
 	word-break: normal;
 	font-weight: lighter;
 	font-size: 1.1em;
 	font-family: 'Roboto', sans-serif;
-	line-height: 1.4em;
 }
-#main ul a, #main ol a{
+#main ul{
+	list-style: square;
+}
+#main ul a:not(.TagPost), #main ol a:not(.TagPost){
 	color: #000;
 	text-decoration: none;
 	font-family: 'Kalam', cursive;
 }
-#main ul a:after, #main ol a:after{
-	padding-left: 3px;
-	content: '\f08e';
-	font-size: 0.7em;
-	font-family: FontAwesome;
+#main ul a:not(.TagPost):after, #main ol a:not(.TagPost):after{
+	font-family: "Font Awesome 5 Free";
+	content: "\f35d";
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	margin-left: 0.25em;
+    font-size: .7em;
+    font-weight: 900;
 }
 /* Fin listas */
 
 /* Listas de contenido */
 #main #ListaContenido{
 	padding-left: 20px;
-	list-style: none;
+	list-style-type: lower-greek;
+	list-style-position: inside;
+	line-height: 1.4em;
 }
 #main #ListaContenido li{
 	cursor: pointer;
 }
-#main #ListaContenido li:before{
-	padding-right: 10px;
-	content: '\f101';
-	font-family: 'FontAwesome';
+#ListaContenido li::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f3be";
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 0.25em;
+    font-size: .7em;
+    font-weight: 900;
 }
 /* Fin listas de contenido */
 
@@ -282,6 +297,12 @@ table tr:nth-child(even) {
 #main #PostsList p{
 	margin-top: 20px;
 	font-size: 1em;
+}
+#main #PostsList small, #main .ListaTags small{
+	display: block;
+	margin: 0;
+	color: #868686;
+	font-weight: normal;
 }
 /* Fin de lista de problemas, topicos ... */
 
@@ -439,116 +460,6 @@ video{
 	background-image: none;
 }
 /* Fin tags */
-
-/* Formulario de contacto */
-#ContactForm{
-	width: 100%;
-	-webkit-appearance: none; -moz-appearance: none;
-}
-#ContactForm .FElem{
-	border-style: none;
-	display: block;
-	box-sizing: border-box;
-	margin-top: 20px;
-	padding-left: 10px;
-	width: 100%;
-	font-size: 1.1em; 
-	font-family: 'Kalam';
-}
-#ContactForm .FIzq{
-	float: left;
-	width: 40%;
-}
-#ContactForm textarea{
-	border-style: none;
-	display: block;
-	float: left; 
-	box-sizing: border-box;
-	margin-top: 20px;
-	margin-left: 50px;
-	padding-left: 10px;
-	width: 50%;
-	height: 10em;
-	font-size: 1em;
-	font-family: 'Kalam', cursive;
-	-webkit-appearance: none; -moz-appearance: none;
-}
-#ContactForm input[type="submit"]{
-	margin-top: 20px;
-	padding: 7px 0;
-	width: 150px;
-	border: 1px solid #000;
-	background: rgba(250,250,250,1); 
-	font-size: 1em;
-	font-family: 'Kalam', cursive;
-	-webkit-appearance: none; -moz-appearance: none;
-}
-#CFGraT, #CFGraP, #CFErrT, #CFErrP, #CFOtro, #CFOtroSad{
-	display: none;
-}
-/* Fin de formulario de contacto */
-
-/* Formato de registro */
-#RFGraT, #RFGraP, #RFErrT, #RFErrP, #RFErrD, #LFErrT{
-	display: none;
-}
-#RegisterForm, #LoginForm{
-	width: 100%;
-	box-sizing: border-box;
-}
-#RegisterForm label, #LoginForm label{
-	font-family: 'Roboto', sans-serif;
-	font-size: 1.1em;
-	padding-right: 20px;
-}
-#RegisterForm span, #LoginForm span{
-	font-weight: lighter;
-	font-family: 'Kalam', cursive;
-	color: #f00;
-}
-#RegisterForm input, #RegisterForm select, #LoginForm input{
-	margin-bottom: 20px;
-	margin-top: 5px;
-	padding: 10px 5px;
-	width: 100%;
-	border: none;
-	border-top: 1px solid #D2D3D5;
-	border-bottom: 1px solid #D2D3D5;
-	font-size: 1em;
-	font-family: 'Kalam', cursive;
-	box-sizing: border-box;
-	-webkit-appearance: none;
-	-moz-appearance: none;
-}
-#RegisterForm #REnviar, #LoginForm #LEnviar{
-	box-sizing: border-box;
-	margin: 0 auto;
-	margin-left: calc(50% - 75px);
-	padding: 7px 0;
-	width: 150px;
-	border: 1px solid #ddd;
-	background-color: #f8f8f8;
-	font-size: 1em;
-	font-family: 'Kalam', cursive;
-	cursor: pointer;
-	-webkit-transition: all 0.3s ease-in-out 0s;
-	-moz-transition: all 0.3s ease-in-out 0s;
-	-o-transition: all 0.3s ease-in-out 0s;
-	-ms-transition: all 0.3s ease-in-out 0s;
-	transition: all 0.3s ease-in-out 0s;
-	-webkit-appearance: none; 
-	-moz-appearance: none;
-}
-#RegisterForm #REnviar{
-	margin-top: 50px;
-	display: block;
-}
-#RegisterForm #REnviar:hover{
-	background-color: #000;
-	color: #f8f8f8;
-}
-/* Fin formato de registro */
-
 .container-tab1{
 	width: auto;
 }
@@ -596,6 +507,9 @@ code{
 	font-size: 1em;
 	font-family: 'Inconsolata', 'Consolas', monospace;
 }
+#main .BtnDis{
+	cursor: default;
+}
 /* Falta por configurar el DarkMode */
 kbd{
     display: inline-block;
@@ -610,23 +524,66 @@ kbd{
     border-radius: 3px;
     box-shadow: inset 0 -1px 0;
 }
-/* ------ Celular ------- */
-@media only screen and (max-width: 730px){
-	#ContactForm .FIzq{
-		margin-bottom: 20px;
-		width: 100%;
-	}
-	#ContactForm .FElem{
-		font-size: 1em;
-	}
-	#ContactForm textarea{
-		font-size: 0.9em;
-		float: none;
-		margin-left: 0;
-		width: 100%;
-		height: 6em;
-	}
+/* ------ Dark mode ------ */
+#main .DrkTextB1:not(.TagPost){
+	color: #fff;
 }
+#main .DrkTextB2:not(.TagPost){
+	color: #ccc;
+}
+#main #PostsList .DrkTextB2:not(.TagPost){
+	color: #ccc;
+}
+#main .DrkTextB3:not(.TagPost){
+	color: #eee;
+}
+#main .DrkTextO3:not(.TagPost){
+	color: #7d7c78;
+}
+#main .DrkTextO4:not(.TagPost){
+	color: #555;
+}
+#main .DrkTextO5:not(.TagPost){
+	color: #96989A;
+}
+#main .DrkBgB1{
+	background-color: #fff;
+}
+#main .DrkBgO0{
+	background-color: #000;
+}
+#main .DrkBgO1{
+	background-color: #131313;
+}
+.DrkBgO1{
+	background-color: #131313;
+}
+#main .DrkBgO2{
+	background-color: #333;
+}
+#main .DrkBgO4{
+	background-color: #555;
+}
+#main .DrkBordB1{
+	border-color: #fff;
+}
+#main .DrkBordO3{
+	border-color: #7d7c78;
+}
+#main .DrkBtnAct{
+	color: #eee;
+}
+#main .UKLISelectDrk{
+    color: #fff;
+    font-size: 1.1em;
+}
+#main #LIAlters .DrkBtnHov:hover, #main #SUAlters .DrkBtnHov:hover{
+	background: #333;
+	color: #fff;
+}
+/* ------ Fin dark mode ------ */
+
+/* ------ Celular ------- */
 @media only screen and (max-width: 600px){
 	#main{
 		margin-top: 60px;
@@ -644,12 +601,12 @@ kbd{
 	h3{
 		font-size: 1.1em;
 	}
-	p, ul li, ol, dl, blockquote{
+	p, ul li, ol, dl, blockquote, blockquote p, #main #ListaContenido, #main ul, #main ol{
 		font-size: 0.9em;
 	}
-	blockquote p, #main #ListaContenido, #main ul, #main ol{
+	/*blockquote p, #main #ListaContenido, #main ul, #main ol{
 		font-size: 1em;
-	}
+	}*/
 	video{
 		width: 100%;
 	}

@@ -1,89 +1,80 @@
 /* ----------------- Modo noche ----------------- */
+var DarkActive = false;
+
 function DarkModePoetry(){
-	/* --- Configuración de colores --- */
-	var blanco = '#fff',
-		blanco2 = '#ccc',
-		blanco3 = '#eee',
-		oscuro1 = '#131313',
-		comentarios = '#aaa',
-		oscuro2 = '#333',
-		oscuro3 = '#7d7c78',
-		oscuro4 = '#555',
-		oscuro5 = '#303030',
-		picori = 'N.png',
-		picsec = 'B.png';
+	if (DarkActive){
+		DarkActive = false;
+	} else {
+		DarkActive = true;
+	}
 
 	/* --- Cuerpo del texto --- */
-	$('h1, h2, h3, h4, h5, h6, h2 a').css('color', blanco);
-	$('html').css('background-color', oscuro1);
-	$('p, p a, blockquote, ul, ol, dl, ul a, .MJXc-display').css('color', blanco2);
-	$('blockquote').css({
-		'background-color': '#222',
-		'border-left-color': '#666'
-	});
+	$('h1, h2, h3, h4, h5, h6, h2 a').toggleClass('DrkTextB1');
+	$('html').toggleClass('DrkBgO1');
+	$('p, p a, blockquote, ul, ol, dl, ul a, .MJXc-display').toggleClass('DrkTextB2');
+	$('blockquote').toggleClass('DrkBgO6 DrkBordO4');
+	
 	/* --- Cabecera, títulos y menú --- */
-	$('.HOficial, .HOficial section a').css({
-		'color': blanco,
-		'background-color': '#131313'
-	});
-	$('.btn-multi .btn').css({
-		'color': oscuro2,
-		'background-color': blanco
-	});
-	$('.btn-multi a, .btn-multi label > .icon').css('color', oscuro2);
+	$('.HOficial, .HOficial section a').toggleClass('DrkTextB1 DrkBgO1');
+	$('.btn-multi .btn').toggleClass('DrkTextO2 DrkBgB1');
+	$('.btn-multi a, .btn-multi label > .icon').toggleClass('DrkTextO2');
 
 	/* --- Tags y code snippet --- */
-	$('code, .TagPost').css({
-		'background-color': oscuro2,
-		'border-color': oscuro3,
-	});
+	$('code, .TagPost').toggleClass('DrkBgO2 DrkBordO3');
+	$('.TagPost').toggleClass('DrkTagPost');
 
 	/* --- Navegación inferior ---*/
-	$('body section article nav a').css('color', blanco2);
+	$('body section article nav a').toggleClass('DrkTextB2');
 
 	/* --- Tablas --- */
-	$('table').css('background-color', oscuro5);
-	$('table td').css('color', blanco2);
-	$('table th').css('color', blanco3);
+	$('table').toggleClass('DrkBgO5');
+	$('table td').toggleClass('DrkTextB2');
+	$('table th').toggleClass('DrkTextB3');
 
 	/* --- Formulario de contacto --- */
-	$('#ContactForm input, #ContactForm textarea').css({
-		'background-color': oscuro2,
-		'border-color': oscuro3,
-		'color': blanco2,
-	});
-	$("#ContactForm #Enviar").css('color', blanco3);
-}
-var running = false,
-    count = 0,
-    sigue = true;
+	$('#ContactForm input, #ContactForm textarea').toggleClass('DrkBgO2 DrkBordO3 DrkTextB2');
+	$("#ContactForm #Enviar").toggleClass('DrkTextB3');
 
-var d = new Date();
-var n = d.getHours();
-
-if (n > 19 || n < 7){
-	sigue = false;
-	DarkModePoetry();
+	/* --- Formulario de contacto --- */
+	$('#search-input input').toggleClass('DrkBgO2 DrkTextB1 DrkBordO3 DrkInFocus');
+	$('#algolia-logo a').toggleClass('DrkTextO5');
+	$('#stats').toggleClass('DrkTextB2');
+	$('#filtros-div').toggleClass('DrkFiltersHover');
 }
 
-var end_counter = function() {
-    if (running) {
-        running = false;
-        if (count >= 5 && sigue){
-        	sigue = false;
-        	DarkModePoetry();
-        }
-    }
-};
-$('#HPost').click(function() {
-	if (sigue){
-		if (running) {
-	        count++;
-	    } else {
-	        running = true;
-	        count = 1;
-	        setTimeout(end_counter, 1000);
-	    }
+$(document).ready(function() {
+	var user = firebase.auth().currentUser;
+	var date = new Date();
+	var hour = date.getHours();
+	if (user) {
+		var uid = user.uid;
+		firebase.database().ref('/SiteUI/' + uid).on('value', function(snapshot){
+			var DarkAuto = snapshot.val().DarkModeAuto;
+			var DarkForced = snapshot.val().DarkMode;
+			if (DarkAuto){
+				if (hour > 19 || hour < 7){
+					if (!DarkActive){
+						DarkModePoetry();
+					}
+				} else if (DarkActive){
+					DarkModePoetry();
+				}
+			} else {
+				if (DarkForced){
+					if (!DarkActive){
+						DarkModePoetry();
+					}
+				} else if (DarkActive){
+					DarkModePoetry();
+				}
+			}
+		});
+	} else {
+		if (hour > 19 || hour < 7){
+			DarkModePoetry();
+		} else if (DarkActive){
+			DarkModePoetry();
+		}
 	}
 });
 /* ----------------- Fin modo noche ----------------- */

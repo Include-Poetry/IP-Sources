@@ -2,10 +2,18 @@
 .Cabecera{
 	display: none;
 }
+nav ul{
+	top: 4px;
+}
+nav:not(#IconosMenu){
+	top: -8px;
+}
 .Cuerpo, .Contenido{
 	margin-bottom: 0;
 }
-
+#MenuBackArr{
+	margin-top: 30px;
+}
 .Pantalla{
 	width: 100%;
 	height: 100%;

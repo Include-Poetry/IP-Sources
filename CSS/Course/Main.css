@@ -27,10 +27,16 @@
 	font-family: 'Kalam', cursive;
 }
 #main a:not(.TagPost):after{
-	padding-left: 3px;
-	content: '\f08e';
-	font-size: 0.7em;
-	font-family: FontAwesome;
+	font-family: "Font Awesome 5 Free";
+	content: "\f35d";
+	display: inline-block;
+	font-style: normal;
+	font-variant: normal;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	margin-left: 0.25em;
+    font-size: .7em;
+    font-weight: 900;
 }
 #main a:not(.TagPost):hover{
 	text-decoration: underline;

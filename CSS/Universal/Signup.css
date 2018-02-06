@@ -1,0 +1,138 @@
+
+#SUTitulo{
+	text-align: center;
+}
+#SUPre{
+	font-family: 'Kalam', sans-serif;
+	text-align: center;
+}
+
+#SUAlters {
+    text-align: center;
+    max-width: 550px;
+    margin: 40px auto;
+}
+
+.SUOpt {
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: .85em;
+    box-sizing: border-box;
+    width: calc((100% - 20px)/3);
+    display: inline-block;
+    cursor: pointer;
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -ms-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+}
+.SUOpt:hover{
+    background: #000;
+    color: #fff;
+}
+.SUOptTex{
+	display: inline;
+}
+#SUGoogle {
+    float: left;
+}
+
+#SUFacebook {
+    margin: 0 auto;
+}
+
+#SUGithub {
+    float: right;
+}
+
+#SUPost {
+    text-align: center;
+    font-family: 'Kalam', sans-serif;
+    box-shadow: 0 0 black;
+}
+
+#SUOffer {
+    text-align: center;
+    font-family: 'Kalam',sans-serif;
+}
+#SUTerms{
+    font-size: 0.7em;
+    text-align: center;
+}
+
+#RegisterForm{
+	text-align: center;
+    max-width: 550px;
+    margin: auto;
+}
+#RegisterForm label{
+    border-radius: 5px 0 0 5px;
+}
+.UPCampo{
+	border: 1px solid #D1D5DA;
+	background-color: #FAFBFC;
+	border-radius: 5px;
+	color: #AAA;
+	width: 100%;
+	line-height: 34px;
+	box-sizing: border-box;
+	margin-top: 8px;
+	display: block;
+}
+.UPCampo .UPUIco{
+	border-right: 1px solid #D1D5DA;
+    width: 42px;
+    display: inline-block;
+    text-align: center;
+}
+.UPCampo .UPUTex {
+    margin-left: 10px;
+    background: none;
+    line-height: 1.8em;
+    border: none;
+    width: calc(100% - 50px);
+    box-sizing: border-box;
+    margin: 0;
+    font-family: 'Kalam',sans-serif;
+}
+
+.UPCampo span{
+    font-family: 'Kalam';
+    font-size: .8em;
+    color: #585858;
+    line-height: 1.5em;
+    display: block;
+}
+
+#SUSendB {
+    text-align: center;
+}
+
+#LEnviar {
+    background: #000;
+    border: 1px solid #000;
+    border-radius: 8px;
+    padding: 10px;
+    display: inline-block;
+    min-width: 150px;
+    cursor: pointer;
+    color: #fff;
+    font-family: 'Kalam', sans-serif;
+    font-size: .8em;
+    -webkit-appearance: none;
+}
+
+#SUPass, #SUPassConf, #SUCorreo{
+    font-family: 'Consolas', 'Inconsolata', monospace;
+}
+
+@media only screen and (min-width: 5050px){
+	.SUOptTex{
+		display: none;
+	}
+	.SUOpt{
+		max-width: 70px;
+	}
+}

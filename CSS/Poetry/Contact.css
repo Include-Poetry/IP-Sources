@@ -19,11 +19,12 @@
 	margin-bottom: 20px;
 	height: 150px;
 	font-size: 1em;
+	resize: none;
 }
-#ContactForm #Enviar{
+#ContactForm .Enviar{
 	box-sizing: border-box;
 	margin: 0 auto;
-	margin-left: calc(50% - 75px);
+	display: block;
 	padding: 7px 0;
 	width: 150px;
 	border: 1px solid #ddd;
@@ -38,7 +39,17 @@
 	transition: all 0.3s ease-in-out 0s;
 	-webkit-appearance: none; -moz-appearance: none;
 }
-#ContactForm #Enviar:hover{
+#ContactForm .Enviar:hover{
 	background-color: #000;
 	color: #f8f8f8;
+}
+
+#ContactForm .DrkTextB3{
+	color: #eee;
+}
+#ContactForm .DrkBgO2{
+	background-color: #333;
+}
+#ContactForm .DrkBordO3{
+	border-color: #7d7c78;
 }

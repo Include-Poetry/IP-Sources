@@ -1,86 +1,167 @@
-$(document).ready(function() {
-	jQuery.validator.addMethod('uniqueuser', function(value, element){
-		var target = firebase.database().ref('usernames');
-		target.once('value').then(function(snapshot){
-			var existe = snapshot.child(value).exists();
-			console.log(!existe);
-			if(!existe){
-				$('#foouser').val('verdadero');
-			} else {
-				$('#foouser').val('falso');
-			}
-		});
-		var temp = $('#foouser').val();
-		console.log(temp);
-		return temp == 'verdadero';
-	}, 'El usuario ya ha sido ocupado');
+function LoadNewData(uid, name){
+	var NuevaInfo = {
+		Nombre: name,
+		Apellidos: '',
+		Nacionalidad: '',
+		Estado: '',
+		Nacimiento: '',
+		Escolaridad: '',
+		Grado: '',
+		Sexo: ''
+	};
+	var NuevosIntereses = {
+		Biología: false,
+		Física: false,
+		Geografía: false,
+		Historia: false,
+		Informática: false,	
+		Matemáticas: false,	
+		Química: false
+	};
+	var TipoUsuario = {
+		Asesor: false,
+		Competidor: false,
+		Delegado: false,
+		Desarrollador: false,
+		Entrenador: false,		
+		Estudiante: false,
+		Investigador: false
+	};
+	var NuevoContacto = {
+		Facebook: '',
+		Celular: '',
+		Correo: '',
+		Website: '',
+		Github: ''
+	};
+	var AccStats = {
+		BasicData: false,
+		Contacto: false,
+		InteresA: false,
+		InteresE: false,
+		TipodeUsuario: false,
+		UserGrls: false
+	};
+	var Descrip = {
+		Descripcion: ''
+	};
+	var SiteUI = {
+		DarkModeAuto: true,
+		DarkMode: false
+	};
+	firebase.database().ref('/TipodeUsuario/' + uid).once('value').then(function(snapshot) {
+		// Si verdadero entonces ya se ha añadido este usuario
+		var Bandera = snapshot.hasChild('Competidor');
+		if (!Bandera){
+			var updates = {};
+			updates['/BasicData/' + uid] 	= NuevaInfo;
+			updates['/InteresA/' + uid] 	= NuevosIntereses;
+			updates['/InteresE/' + uid] 	= NuevosIntereses;
+			updates['/TipodeUsuario/' + uid] = TipoUsuario;
+			updates['/Contacto/' + uid] 	= NuevoContacto;
+			updates['/CuentaStat/' + uid] 	= AccStats;
+			updates['/UserGrls/' + uid] 	= Descrip;
+			updates['/SiteUI/' + uid] 		= SiteUI;
+			firebase.auth().currentUser.updateProfile({ displayName: name }).then(function() {
+				firebase.database().ref().update(updates).then(function() {
+					window.location.replace("/Perfil/");
+				}).catch(function(error) {
+					console.error(error.code);
+				});
+			}).catch(function(error) {
+				console.error(error.code);
+			});
+		} else {
+			window.location.replace("/Perfil/");
+		}
+	});
+}
 
+$(document).ready(function() {
+	var NoSignupProcess = false;
+	// Result from Redirect auth flow.
+	firebase.auth().getRedirectResult().then(function(result) {
+		// The signed-in user info.
+		var user = result.user;
+		if (user != null){
+			$('#LEnviar').val('Cargando tu perfil...');
+			var name = user.displayName;
+			var uid = user.uid;
+			LoadNewData(uid, name);
+		}
+	}).catch(function(error) {
+		// Handle Errors here.
+		var errorCode = error.code;
+		console.error(errorCode)
+		if (errorCode === 'auth/account-exists-with-different-credential') {
+			$('#LEnviar').val('El correo asociado ya ha sido usado');
+			setTimeout(function () {
+				$('#LEnviar').val('Registrarme');
+			}, 8000);
+		} else {
+			if (errorMessage == "user is null"){
+				NoSignupProcess = true;
+			}
+		}
+	});
+
+	firebase.auth().onAuthStateChanged(function(user) {
+		// Tiene que estar autenticado y no en proceso de registro
+		if (user && NoSignupProcess) {
+			// User is signed in.
+			window.location.replace("/Perfil/");
+		}
+	});
+
+	$('#SUFacebook').click(function(event) {
+		var provider = new firebase.auth.FacebookAuthProvider();
+		provider.addScope('public_profile');
+		provider.addScope('email');
+		firebase.auth().signInWithRedirect(provider);
+	});
+	$('#SUGoogle').click(function(event) {
+		var provider = new firebase.auth.GoogleAuthProvider();
+		provider.addScope('https://www.googleapis.com/auth/plus.login');
+		firebase.auth().signInWithRedirect(provider);
+	});
+	$('#SUGithub').click(function(event) {
+		var provider = new firebase.auth.GithubAuthProvider();
+		provider.addScope('user:email');
+		firebase.auth().signInWithRedirect(provider);
+	});
 	$('#RegisterForm').validate({
 		rules:{
-			RNombre: {
-				required: true,
-				minlength: 3,
-				maxlength: 30
-			},
-			RApellidos: {
-				required: true,
-				minlength: 5,
-				maxlength: 60
-			},
-			RUsuario: {
-				alphanumeric: true,
-				required: true,
-				minlength: 5,
-				maxlength: 20,
-				uniqueuser: true
-			},
-			REmail: {
+			SUMail: {
 				required: true,
 				email: true,
 				minlength: 5,
 				maxlength: 30
 			},
-			RPass: {
+			SUPassword: {
 				required: true,
 				minlength: 8,
 				maxlength: 30
 			},
-			RPassc: {
+			SUPasswordConf: {
 				required: true,
 				minlength: 8,
-				equalTo: "#RPass",
+				equalTo: "#SUPass",
 				maxlength: 30
 			}
 		},
 		messages: {
-			RNombre: {
-				required: 'Campo obligatorio',
-				minlength: 'Mínimo 3 caracteres',
-				maxlength: 'Máximo 30 caracteres'
-			},
-			RApellidos: {
-				required: 'Campo obligatorio',
-				minlength: 'Mínimo 5 caracteres',
-				maxlength: 'Máximo 60 caracteres'
-			},
-			RUsuario: {
-				alphanumeric: 'Sólo letras, números y guiones bajos',
-				required: 'Campo obligatorio',
-				minlength: 'Mínimo 5 caracteres',
-				maxlength: 'Máximo 20 caracteres'
-			},
-			REmail: {
+			SUMail: {
 				required: 'Campo obligatorio',
 				email: 'Correo no válido',
 				minlength: 'Mínimo 5 caracteres',
 				maxlength: 'Máximo 30 caracteres'
 			},
-			RPass: {
+			SUPassword: {
 				required: 'Campo obligatorio',
 				minlength: 'Mínimo 8 caracteres',
 				maxlength: 'Máximo 30 caracteres'
 			},
-			RPassc: {
+			SUPasswordConf: {
 				required: 'Campo obligatorio',
 				minlength: 'Mínimo 8 caracteres',
 				equalTo: 'Las contraseñas no coinciden',
@@ -89,78 +170,46 @@ $(document).ready(function() {
 		},
 		errorElement: 'span',
 		errorPlacement: function(event, element){
-			var placement = $(element).data('error');
-			if (placement) {
-				$(placement).append(event)
-			} else {
-				event.insertBefore(element);
-			}
+			event.insertAfter(element);
 		},
 		submitHandler: function(form){
-			firebase.auth().createUserWithEmailAndPassword($("#REmail").val(),$("#RPass").val()).then(function(user){
-				$("#RegisterForm, #RFDefP").fadeOut('slow', function() {
-					$('#RFGraT').fadeIn('slow', function(){
-						$('#RFGraP').fadeIn('slow');
-					});
-				});
+			var correo = $("#SUCorreo").val();
+			var pass = $("#SUPass").val();
+			firebase.auth().createUserWithEmailAndPassword(correo, pass).then(function(user){
+				$('#LEnviar').val('Cargando tu perfil...');
+				// Enviamos correo de verificación
 				user.sendEmailVerification();
-				var s_user = user.uid;
-
-				var nombre = $('#RNombre').val(),
-					apellido = $('#RApellidos').val(),
-					usuario = $('#RUsuario').val(),
-					tipoUsuario = $('#RTipo option:selected').text();
-
-				firebase.database().ref('users/' + s_user).set({
-					f_name: nombre,
-					l_name: apellido,
-					user_iP: usuario,
-					user_t: tipoUsuario
-				});
-
-				var validarUsuario = firebase.database().ref('usernames');
-				validarUsuario.child(usuario).set(s_user)
-					.then(function(){
-						console.log('Usuario registrado correctamente');
-					}).catch(function(error){
-						console.log('Error en registro de username');
-						console.log(error.code);
-					});
-
-				$('html, body').animate({
-					scrollTop: 0
-				}, 400);
-
-				console.log('Creación exitosa de usuario');
-
-				setTimeout(function () {
-					console.log('Redirigiendo...');
-					window.location.href = "https://www.include-poetry.com";
-				}, 6000);
+				// Sacamos uid y cargamos info necesaria de nuevo ingreso
+				var uid = user.uid;
+				NoSignupProcess = false;	
+				LoadNewData(uid, correo);
 			}).catch(function(error) {
+				// Manejamos errores
 				var errorCode = error.code;
-				var errorMessage = error.message;
-
-				if (errorCode){
-					$("#RegisterForm, #RFDefP").fadeOut('slow', function() {
-						$('#RFErrT').fadeIn('slow', function(){
-							$('#RFErrP, #RFErrD').fadeIn('slow');
-						});
-					});
-				}
-					
 				switch(errorCode){
 					case 'auth/email-already-in-use':
-						$('#RFErrD').html('El correo ingresado ya está registrado');
+						$('#LEnviar').val('Correo ya en uso :c');
+						setTimeout(function () {
+							$('#LEnviar').val('Registrarme');
+						}, 3000);
 						break;
 					case 'auth/invalid-email':
-						$('#RFErrD').html('El correo no es válido');
+						$('#LEnviar').val('Correo no válido :c');
+						setTimeout(function () {
+							$('#LEnviar').val('Registrarme');
+						}, 3000);
 						break;
 					case 'auth/operation-not-allowed':
-						$('#RFErrD').html('Operación inválida');
+						$('#LEnviar').val('Operación denegada :c');
+						setTimeout(function () {
+							$('#LEnviar').val('Registrarme');
+						}, 3000);
 						break;
 					case 'auth/weak-password':
-						$('#RFErrD').html('Contraseña muy débil');
+						$('#LEnviar').val('Contraseña débil :c');
+						setTimeout(function () {
+							$('#LEnviar').val('Registrarme');
+						}, 3000);
 						break;
 				}
 			});

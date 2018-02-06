@@ -1,8 +1,7 @@
-app({
-  appId: 'QC3QNXU3KT',
-  apiKey: '003f676acec1b6c92cad56ea7dc12237', 
-  indexName: 'MainIndexIPN',
-});
+var DrkTime = '';
+var DrkMore = '';
+var DrkHit, DrkEmpty;
+var DrkReload = false;
 
 function app(opts) {
   const search = instantsearch({
@@ -23,10 +22,13 @@ function app(opts) {
     instantsearch.widgets.infiniteHits({
       container: '#infinite-hits-container',
       templates: {
-        item: getTemplate('hit'),
-        empty: getTemplate('no-results')
+        item: DrkHit,
+        empty: DrkEmpty
       },
       hitsPerPage: 5,
+      cssClasses: {
+        showmore: DrkMore
+      },
       showMoreLabel: 'Más resultados'
     })
   );
@@ -36,7 +38,7 @@ function app(opts) {
       container: '#stats',
       templates: {
         body: function(data){
-          var tiempo = '<span class="ais-stats--time">en '+ data.processingTimeMS + 'ms</span>';
+          var tiempo = '<span class="ais-stats--time ' + DrkTime + '">en '+ data.processingTimeMS + 'ms</span>';
           if (data.hasManyResults){
             return data.nbHits + ' resultados ' + tiempo;
           }
@@ -90,18 +92,86 @@ function getHeader(title) {
   return `<h5>${title}</h5>`;
 }
 
-/* Arreglos para móvil */
-$('#filtros-titulo').click(function(event) {
-  $('#filtros-div').slideToggle('slow');
-  if ($('#fflecha').hasClass('fa-sort-asc')) {
-    $('#fflecha').removeClass('fa-sort-asc');
-    $('#fflecha').addClass('fa-sort-desc');
+$(document).ready(function() {
+  var user = firebase.auth().currentUser;
+  if (user) {   
+    var uid = user.uid;
+    firebase.database().ref('/SiteUI/' + uid).on('value', function(snapshot){
+      if (DrkReload){
+        location.reload();
+      } else {
+        DrkReload = true;
+      }
+      var DarkAuto = snapshot.val().DarkModeAuto;
+      var DarkForced = snapshot.val().DarkMode;   
+      if (DarkAuto){        
+        var d = new Date();
+        var n = d.getHours();
+        if (n > 19 || n < 7){
+          DrkHit = getTemplate('hit-drk');
+          DrkEmpty = getTemplate('no-results-drk');
+          DrkTime = 'DrkTextO3';
+          DrkMore = 'SearchShowMoreBtn';
+
+        } else {
+          DrkHit = getTemplate('hit');
+          DrkEmpty = getTemplate('no-results');
+          DrkTime = '';
+          DrkMore = '';
+        }
+      } else {        
+        if (DarkForced){
+          DrkHit = getTemplate('hit-drk');
+          DrkEmpty = getTemplate('no-results-drk');
+          DrkTime = 'DrkTextO3';
+          DrkMore = 'SearchShowMoreBtn';
+        } else {
+          DrkHit = getTemplate('hit');
+          DrkEmpty = getTemplate('no-results');
+          DrkTime = '';
+          DrkMore = '';
+        }
+      }
+      app({
+        appId: 'QC3QNXU3KT',
+        apiKey: '003f676acec1b6c92cad56ea7dc12237', 
+        indexName: 'MainIndexIPN',
+      });
+    });
   } else {
-    $('#fflecha').removeClass('fa-sort-desc');
-    $('#fflecha').addClass('fa-sort-asc');
+    var d = new Date();
+    var n = d.getHours();
+    if (n > 19 || n < 7){
+      DrkHit = getTemplate('hit-drk');
+      DrkEmpty = getTemplate('no-results-drk');
+      DrkTime = 'DrkTextO3';
+      DrkMore = 'SearchShowMoreBtn';
+    } else {
+      DrkHit = getTemplate('hit');
+      DrkEmpty = getTemplate('no-results');
+      DrkTime = '';
+      DrkMore = '';
+    }
+    app({
+      appId: 'QC3QNXU3KT',
+      apiKey: '003f676acec1b6c92cad56ea7dc12237', 
+      indexName: 'MainIndexIPN',
+    });
   }
+
+  /* Arreglos para móvil */
+  $('#filtros-titulo').click(function(event) {
+    $('#filtros-div').slideToggle('slow');
+    if ($('#fflecha').hasClass('fa-sort-up')) {
+      $('#fflecha').removeClass('fa-sort-up');
+      $('#fflecha').addClass('fa-sort-down');
+    } else {
+      $('#fflecha').removeClass('fa-sort-down');
+      $('#fflecha').addClass('fa-sort-up');
+    }
+  });
+  $(window).resize(function(event) {
+    $('#filtros-div').slideDown('slow');
+  });
+  /* Fin de arreglos para móvil */
 });
-$(window).resize(function(event) {
-  $('#filtros-div').slideDown('slow');
-});
-/* Fin de arreglos para móvil */
