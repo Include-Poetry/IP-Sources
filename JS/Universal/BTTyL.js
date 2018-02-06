@@ -55,8 +55,8 @@ $('#ListaContenido li').click(function(event) {
 });
 /* --------- Fin lista de contenido ------- */
 
-/* --------- Facebook comments ------- */
+/* --------- Disqus comments ------- */
 $("#ComentAct").click(function(event) {
 	$(".CajaComent").slideToggle("slow");
 });
-/* --------- Fin Facebook comments ------- */
+/* --------- Fin Disqus comments ------- */

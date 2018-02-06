@@ -138,6 +138,14 @@
 	-webkit-transition: all 0.25s ease-in-out;
 }
 
+/* --- DarkMode --- */
+.btn-multi label > .DrkTextO2{
+	color: #333;
+}
+.DrkBgB1{
+	background-color: #fff;
+}
+
 @media only screen and (max-width: 768px){
 	.btn-multi {
 		right: 2%;

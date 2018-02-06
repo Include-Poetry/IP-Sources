@@ -1,0 +1,361 @@
+body iframe{
+    display: none;
+}
+#main article{
+	width: 100%;
+	display: inline-block;
+    font-family: 'Roboto', sans-serif;
+}
+
+.UPCampo{
+	border: 1px solid #D1D5DA;
+	background-color: #FAFBFC;
+	border-radius: 5px;
+	color: #606060;
+	width: 100%;
+	line-height: 34px;
+	box-sizing: border-box;
+	margin-top: 8px;
+	display: inline-block;
+}
+/* --- Campo de una columna --- */
+.UPCampo .UPUIco{
+	border-right: 1px solid;
+    border-color: #D1D5DA;
+    width: 42px;
+    border-radius: 5px 0 0 5px;
+    display: inline-block;
+    text-align: center;
+}
+.UPCampo .UPUTex{
+	margin-left: 10px;
+}
+.UPCampo .UPUIn{
+	display: none;
+	background-color: #FAFBFC;
+    border: none;
+    width: calc(100% - 55px);
+    margin-left: 10px;
+    font-family: 'Kalam', sans-serif;
+}
+.UPCampo .UPUDel{
+	float: right;
+    height: 34px;
+    width: 25px;
+    border: none;
+    background: none;
+    margin: 0px;
+    border-left: 1px solid #D1D5DA;
+    display: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/* --- Campo de dos columnas --- */
+.UPCampo .UPDIco{
+	border-right: 1px solid #D1D5DA;
+    width: 42px;
+    border-radius: 5px 0 0 5px;
+    display: inline-block;
+    text-align: center;
+}
+.UPCampo .UPDNom{
+	margin-left: 10px;
+    width: 12em;
+    /*overflow-x: auto;*/
+    border-right: 1px solid;
+    border-color: #D1D5DA;
+    display: inline-flex;
+}
+.UPDIn{
+	background-color: #FAFBFC;
+    border: none;
+    width: calc(100% - 268px);
+    margin-left: 10px;
+    font-family: 'Kalam', sans-serif;
+    display: none;
+}
+.UPDOut{
+	margin-left: 10px;
+}
+/* --- Auxiliares de los botones --- */
+.OrgButton{
+	text-align: center;
+    display: inline-flex;
+    width: 100%;
+}
+.AuxButton{
+	padding: 0 5px;
+	font-size: .9em;
+	font-family: 'Kalam', sans-serif;
+	display: none;
+}
+/* --- Botón de tres opciones --- */
+.UPButtons{
+	border: 1px solid #D1D5DA;
+    display: inline-block;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 20px;
+    line-height: 34px;
+}
+.UPButtons button{
+	width: 50px;
+    background: none;
+    border: none;
+    height: 34px;
+    margin: 0px;
+    float: left;
+    cursor: pointer;
+}
+.UPButtons button:disabled{
+    cursor: default;
+}
+/* --- Botón con indicador shuffle --- */
+.UPDToggleBtn i{
+    cursor: pointer;
+}
+/* --- Presentación --- */
+#SendAgain{
+    cursor: pointer;
+}
+#SendAgain:hover{
+    text-decoration: underline;
+}
+#FotoPerfil{
+	width: 200px;
+    height: 200px;
+    float: left;
+    padding: 0px;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+#UploadPicButton{
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+#AccStatIcon{
+    color: #131313;
+    float: right;
+    margin: 10px;
+    font-size: 2em;
+}
+#UploadPic{
+	position: relative;
+    box-sizing: border-box;
+    border: 1px solid #D1D5Da;
+    width: 30px;
+    height: 30px;
+    background-color: #FaFbFc;
+    top: 160px;
+    left: 85px;
+    color: #000;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    display: none;
+}
+#DatosPre{
+	float: left;
+    width: calc(100% - 250px);
+    margin-left: 50px;
+}
+#UPDesc{
+	height: 100px;
+}
+.UPCampo .UPUIcoDesc{
+	line-height: 34px;
+    border-bottom: 1px solid #D1D2DA;
+    border-radius: 5px 0 5px 0;
+    float: left;
+    position: relative;
+    top: -100%;
+    background: #FAFBFC;
+}
+#UPDesc #DPMoreIn{
+	display: none;
+    resize: none;
+    background: none;
+    border: none;
+    width: 100%;
+    height: 100%;
+    text-indent: 40px;
+    box-sizing: border-box;
+    font-size: 1em;
+    line-height: 34px;
+    padding-left: 15px;
+    margin: 0;
+    float: left;
+    font-family: 'Kalam', sans-serif;
+    overflow: auto;
+}
+#UPDesc #DPMore{
+	margin-left: 15px;
+    float: left;
+    height: 100%;
+    overflow: auto;
+    text-indent: 40px;
+    width: calc(100% - 15px);
+    border-radius: 197px;
+}
+#Presentacion .UPDIn{
+    width: calc(100% - 70px);
+    vertical-align: middle;
+}
+#Presentcion .UPDOut{
+    margin-left: 10px;
+}
+/* --- Información tipos de usuarios -- */
+#UKCol1{
+	float: left;
+    width: 40%;
+}
+#UKCol2 {
+    position: relative;
+    width: calc(60% - 30px);
+    margin-left: calc(40% + 30px);
+}
+#UKDescs {
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #D1D5DA;
+    background-color: #FAFBFC;
+    border-radius: 5px 5px 0 0;
+    color: #606060;
+    border-bottom: none;
+    margin-top: 8px;
+    padding: 5px;
+}
+#UKList {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    box-sizing: border-box;
+    border: 1px solid #D1D5DA;
+    background-color: #FAFBFC;
+    border-radius: 0 0 5px 5px;
+    color: #606060;
+    height: 50px;
+}
+.UKLIcon {
+    width: calc(90%/7);
+    position: relative;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 0;
+    color: #606060;
+    line-height: 31px;
+    font-size: 0.8em;
+    transition: 0.2s linear all;
+}
+.UKLISelect{
+    color: #000;
+    font-size: 1.1em;
+}
+.UKDesc {
+    display: none;
+    height: 180px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.UKDesc h5 {
+    padding-left: 10px;
+    margin: 0;
+    margin-top: 10px;
+    font-size: large;
+}
+.UKDesc p {
+    font-size: .95em;
+    padding: 8px 0;
+    margin-top: 20px;
+}
+/* --- Fin información tipos de usuarios -- */
+
+/* --- Links --- */
+#main .UPCampo a{
+    color: #606060;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+#main .UPCampo a:after{
+    font-family: "Font Awesome 5 Free";
+    content: "\f35d";
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    margin-left: 0.25em;
+    font-size: .7em;
+    font-weight: 900;
+}
+#main .UPCampo a:hover{
+    text-decoration: underline;
+}
+/* --- Para celulares --- */
+
+/* --- De configuración ---*/
+.PCEmailProv{
+    display: none;
+}
+#AccountsLink .UPDIn{
+    display: inline-flex;
+}
+#SaveEmailProv{
+    display: none;
+}
+/* --- Fin de configuración ---*/
+@media only screen and (max-width: 600px){
+    #FotoPerfil{
+        margin-left: calc(50% - 100px);
+        margin-bottom: 30px;
+    }
+    #DatosPre{
+        width: 100%;
+        display: inline-block;
+        margin-left: 0;
+    }
+    .UPCampo{
+        font-size: .82em;
+    }
+    .UPCampo:not(.UPDToggleBtn) .UPDNom {
+        margin-left: -5px;
+        border-left: none;
+        border-bottom: 1px solid #D1D2DA;
+        width: calc(100% - 42px);
+        box-sizing: border-box;
+        padding-left: 10px;
+        border-right: none;
+    }
+    .UPCampo .UPDIco {
+        border-bottom: 1px solid #D1D5DA;
+    }
+    .UPDos:not(.UPDToggleBtn) .UPDOut {
+        margin-left: 0;
+        text-align: center;
+        width: 100%;
+        display: inline-block;
+    }
+    .UPDos:not(.UPDToggleBtn) .UPDIn {
+        width: calc(100% - 5px);
+        margin-left: 0;
+        text-align: center;
+    }
+    #UKCol1{
+        width: 100%;
+    }
+    #UKCol2{
+        margin-left: 0;
+        width: 100%;
+        float: left;
+    }
+    .UKDesc p{
+        font-size: 0.9em;
+    }
+}
+/* --- Fin para celulares --- */

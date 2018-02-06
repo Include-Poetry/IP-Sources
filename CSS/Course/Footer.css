@@ -40,7 +40,7 @@ footer a{
 	transition: all 0.3s ease-in-out 0s;
 }
 #PTextos a:hover{
-	padding-left: 10px;
+	text-decoration: underline;
 }
 .PBloque{
 	float: left;
