@@ -45,7 +45,7 @@ $('textarea.output').each(function( index ) {
 	editor.setReadOnly(true);
 });
 
-$('textarea.karel').each(function( index ) {
+$('textarea.karelp').each(function( index ) {
 	eKarel = ace.edit(this);
 	ace.require('ace/ext/settings_menu').init(eKarel);
 	eKarel.setTheme("ace/theme/karel");
