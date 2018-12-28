@@ -1,7 +1,7 @@
 var drkFlag = false;
 var drkString = '';
 
-function GetDarkClass(){
+/*function GetDarkClass(){
 	var dateDrk = new Date();
 	var nDrk = dateDrk.getHours();
 	var user = firebase.auth().currentUser;
@@ -37,7 +37,7 @@ function GetDarkClass(){
 			drkFlag = false;
 		}
 	}
-}
+}*/
 function UpdateAccountIconState(){
 	var user = firebase.auth().currentUser;
 	var uid = user.uid;
@@ -220,7 +220,7 @@ function UpdateContactMethods(){
 }
 function UpdateUserType(){
 	// Para DarkMode
-	GetDarkClass();
+	//GetDarkClass();
 	var StatComplete = true;
 	// Contadores para no agregar o quitar de donde ya no hay
 	var addIcon = 0, deleteIcon = 0;
@@ -251,7 +251,7 @@ function UpdateUserType(){
 }
 function UpdateInterestsA(){
 	// Para DarkMode
-	GetDarkClass();
+	//GetDarkClass();
 	var StatComplete = true;
 	// Contadores para no agregar o quitar de donde ya no hay
 	var addIcon = 0, deleteIcon = 0;
@@ -282,7 +282,7 @@ function UpdateInterestsA(){
 }
 function UpdateInterestsE(){
 	// Para DarkMode
-	GetDarkClass();
+	//GetDarkClass();
 	var StatComplete = true;
 	// Contadores para no agregar o quitar de donde ya no hay
 	var addIcon = 0, deleteIcon = 0;
@@ -380,7 +380,7 @@ $(window).on('load', function() {
 		}
 	});
 
-	GetDarkClass();			// Precalculamos el Dark Mode
+	//GetDarkClass();			// Precalculamos el Dark Mode
 	UpdatePresentation();	// Datos de presentación
 	UpdateBasicData();		// Información básica
 	UpdateContactMethods();	// Datos de contacto
