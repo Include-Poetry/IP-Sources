@@ -3,7 +3,7 @@ var drkString = '';
 var usingEmail = false;
 var RecentLogIn = false;
 
-///*function GetDarkClass(){
+function GetDarkClass(){
 	// La función sólo actualiza el estado de drkFlag y drkString 
 	// pues el promise de la función no nos permite hacer return
 	var dateDrk = new Date();
@@ -41,7 +41,7 @@ var RecentLogIn = false;
 			drkFlag = false;
 		}
 	}
-}*/
+}
 function ShowErrorBox(box, others, msg){
 	// Muestra un mensaje de error en donde están los botones
 	// box = El id de la caja auxiliar ej. '#Aux1'
@@ -281,7 +281,7 @@ $(window).ready(function(event) {
 		}
 	});
 
-	//GetDarkClass();	// Pre cargamos el DarkMode
+	GetDarkClass();	// Pre cargamos el DarkMode
 
 	/* --- Cambio de contraseña --- */
 	$('#EditPC8').click(function(event) {
