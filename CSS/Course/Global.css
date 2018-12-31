@@ -61,6 +61,9 @@ p{
 	font-family: 'Roboto', sans-serif;
 	line-height: 1.4;
 }
+strong{
+	font-weight: bold;
+}
 s{
 	font-weight: lighter;
 	font-family: 'Kalam', cursive;
