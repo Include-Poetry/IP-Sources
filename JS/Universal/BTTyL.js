@@ -60,3 +60,21 @@ $("#ComentAct").click(function(event) {
 	$(".CajaComent").slideToggle("slow");
 });
 /* --------- Fin Disqus comments ------- */
+
+/* --------- Disqus comments ------- */
+$('.karelLabel').click(function(event) {
+	// Formamos el ID a mostrar con el prefijo genérico y lo que indica el ícono
+	var bloq = '.' + $(this).attr('labFor');	
+	if (bloq == '.karelp'){
+		$('.karelj').css('display', 'none');
+		$('.karelp').css('display', 'block');
+		$('.KLPascal').addClass('karelLabelSelected');
+		$('.KLJava').removeClass('karelLabelSelected');
+	} else if (bloq == '.karelj'){
+		$('.karelp').css('display', 'none');
+		$('.karelj').css('display', 'block');
+		$('.KLJava').addClass('karelLabelSelected');
+		$('.KLPascal').removeClass('karelLabelSelected');
+	} else console.log(bloq);
+});
+/* --------- Fin Disqus comments ------- */

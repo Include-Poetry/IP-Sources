@@ -513,6 +513,34 @@ code{
 #main .BtnDis{
 	cursor: default;
 }
+/* --- Bloque de código de Karel --- */
+.karelBlock{
+    margin-bottom: 45px;
+}
+.karelBlock pre{
+	margin:  0;
+}
+.karelLabel {
+    width: 60px;
+    position: relative;
+    display: inline-block;
+    background: #131313;
+    text-align: center;
+    padding: 5px 0;
+    font-size: .8em;
+    color: #ccc;
+    margin: 0;
+    box-sizing: border-box;
+    float: right;
+    cursor: pointer;
+}
+.karelBlock .karelj{
+	display: none;
+}
+.karelLabelSelected{
+	background: #272822;
+}
+/* --- Fin Bloque de código de Karel --- */
 /* Falta por configurar el DarkMode */
 kbd{
     display: inline-block;
@@ -624,6 +652,12 @@ kbd{
 	.ancla:before {
 		margin-top: -52px;
 		height: 52px;
+	}
+	.karelBlock{
+		margin-bottom: 40px;
+	}
+	.karelLabel{
+		width: 90px;
 	}
 	.Nav{
 		font-size: .8em;
