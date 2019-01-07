@@ -1,4 +1,4 @@
-var editor, salida, eKarel;
+var editor, salida, eKarel, eKarelj;
 var fuenteSize = '1';
 if ($(window).width() < 600) {
 	fuenteSize = '0.8';
@@ -49,7 +49,7 @@ $('textarea.karelp').each(function( index ) {
 	eKarel = ace.edit(this);
 	ace.require('ace/ext/settings_menu').init(eKarel);
 	eKarel.setTheme("ace/theme/karel");
-	eKarel.session.setMode("ace/mode/Karel");
+	eKarel.session.setMode("ace/mode/karelp");
 	eKarel.setShowPrintMargin(false);
 	eKarel.setOptions({
 	    maxLines: 20,
@@ -63,6 +63,28 @@ $('textarea.karelp').each(function( index ) {
 		},
 		readOnly: true
 	}]);
+	eKarel.setStyle('karelp');
+});
+
+$('textarea.karelj').each(function( index ) {
+	eKarelj = ace.edit(this);
+	ace.require('ace/ext/settings_menu').init(eKarelj);
+	eKarelj.setTheme("ace/theme/karel");
+	eKarelj.session.setMode("ace/mode/karelj");
+	eKarelj.setShowPrintMargin(false);
+	eKarelj.setOptions({
+	    maxLines: 20,
+	    fontSize: fuenteSize + 'em'
+	});
+	eKarelj.commands.addCommands([{
+		name: "showSettingsMenu",
+		bindKey: {win: "Ctrl-q", mac: "Command-q"},
+		exec: function(eKarelj) {
+			eKarelj.showSettingsMenu();
+		},
+		readOnly: true
+	}]);
+	eKarelj.setStyle('karelj');
 });
 
 $('textarea.plain-text').each(function(index) {
