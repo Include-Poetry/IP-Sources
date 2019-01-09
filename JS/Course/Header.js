@@ -84,42 +84,6 @@ function MenuLevelPop(){
 	});
 }
 
-/* -------- Sesión iniciada -------- */
-$(document).ready(function() {
-	firebase.auth().onAuthStateChanged(function(user) {
-		if (user) {
-			var NombreTemp = user.displayName;
-			if (NombreTemp == null){
-				NombreTemp = user.email;
-			}
-			var NameAlone = NombreTemp;
-			if (NombreTemp.indexOf(" ") > 0){
-				NameAlone = NombreTemp.substr(0, NombreTemp.indexOf(" "));
-			} else if (NombreTemp.indexOf("@") > 0){
-				NameAlone = NombreTemp.substr(0, NombreTemp.indexOf("@"));
-			}
-			$('#MUSCtrl').data("son", 'MAcc1');
-			$('#MUNDysp').html(NameAlone);
-			// User is signed in.
-		} else {
-			// User is signed out.
-			$('#MUSCtrl').data("son", 'MAcc0');
-			$('#MUNDysp').html('Mi cuenta');
-		}
-	});
-});
-
-$('#MLogOut').click(function(event) {
-	firebase.auth().signOut().then(function() {
-		$('#MUSCtrl').data("son", 'MAcc0');
-		MenuLevelPop();
-		MenuLevelPop();
-	}).catch(function(error) {
-		console.error(error.code);
-	});
-});
-/* -------- Fin sesión iniciada -------- */
-
 $("#MenuBars").click(function() {
 	ToggleMenuBar();
 });

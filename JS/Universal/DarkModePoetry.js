@@ -40,41 +40,16 @@ function DarkModePoetry(){
 	$('#algolia-logo a').toggleClass('DrkTextO5');
 	$('#stats').toggleClass('DrkTextB2');
 	$('#filtros-div').toggleClass('DrkFiltersHover');
+	$('#CFTerms, #CFTerms label, #CFTerms label a').toggleClass('DrkTextB2'); 
 }
 
 $(document).ready(function() {
-	var user = firebase.auth().currentUser;
 	var date = new Date();
 	var hour = date.getHours();
-	if (user) {
-		var uid = user.uid;
-		firebase.database().ref('/SiteUI/' + uid).on('value', function(snapshot){
-			var DarkAuto = snapshot.val().DarkModeAuto;
-			var DarkForced = snapshot.val().DarkMode;
-			if (DarkAuto){
-				if (hour > 19 || hour < 7){
-					if (!DarkActive){
-						DarkModePoetry();
-					}
-				} else if (DarkActive){
-					DarkModePoetry();
-				}
-			} else {
-				if (DarkForced){
-					if (!DarkActive){
-						DarkModePoetry();
-					}
-				} else if (DarkActive){
-					DarkModePoetry();
-				}
-			}
-		});
-	} else {
-		if (hour > 19 || hour < 7){
-			DarkModePoetry();
-		} else if (DarkActive){
-			DarkModePoetry();
-		}
+	if (hour > 19 || hour < 7){
+		DarkModePoetry();
+	} else if (DarkActive){
+		DarkModePoetry();
 	}
 });
 /* ----------------- Fin modo noche ----------------- */
