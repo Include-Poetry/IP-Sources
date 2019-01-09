@@ -52,6 +52,7 @@ function DarkMode(){
 
 	/* --- Formulario de contacto --- */
 	$('#ContactForm input, #ContactForm select, #ContactForm textarea').toggleClass('DrkBgO2 DrkBordO3 DrkTextB2');
+	$('#CFTerms, #CFTerms label a').toggleClass('DrkTextB2'); 
 	$("#ContactForm #Enviar").toggleClass('DrkBgO2Cf DrkBordO3Cf');
 }
 
