@@ -15,6 +15,11 @@ $contactForm.submit(function(e) {
 	var $submit = $('input:submit', $contactForm);
 	var defaultSubmitText = $submit.val();
 
+	var msg = $('#Mensaje').val();
+	var codigoFinal = fnv32a(msg);
+	$('#CFGraP').append(' ' + codigoFinal);
+	$('#CFCodeRec').val(codigoFinal);
+	
 	if ($('#CFAC').prop('checked') == true){		
 		$.ajax({
 			method: "POST",
@@ -26,9 +31,6 @@ $contactForm.submit(function(e) {
 				$submit.attr('disabled', true).val('Enviando...');
 			},
 			success: function(data) {
-				var msg = $('#Mensaje').val();
-				var codigoFinal = fnv32a(msg);
-				$('#CFGraP').append(' ' + codigoFinal);
 				$submit.val('Mensaje enviado');
 				setTimeout(function() {
 					$submit.attr('disabled', false).val(defaultSubmitText);
