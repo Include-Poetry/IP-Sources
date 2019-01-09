@@ -18,7 +18,7 @@ $contactForm.submit(function(e) {
 	if ($('#CFAC').prop('checked') == true){		
 		$.ajax({
 			method: "POST",
-			url: "//formspree.io/includepoetry@protonmail.com",
+			url: "//formspree.io/includepoetry@gmail.com",
 			type: 'POST',
 			data: $(this).serialize(),
 			dataType: "json",
