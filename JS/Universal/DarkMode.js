@@ -57,38 +57,12 @@ function DarkMode(){
 }
 
 $(document).ready(function() {
-	var user = firebase.auth().currentUser;
 	var date = new Date();
 	var hour = date.getHours();
-	if (user) {
-		var uid = user.uid;
-		firebase.database().ref('/SiteUI/' + uid).on('value', function(snapshot){
-			var DarkAuto = snapshot.val().DarkModeAuto;
-			var DarkForced = snapshot.val().DarkMode;
-			if (DarkAuto){
-				if (hour > 19 || hour < 7){
-					if (!DarkActive){
-						DarkMode();
-					}
-				} else if (DarkActive){
-					DarkMode();
-				}
-			} else {
-				if (DarkForced){
-					if (!DarkActive){
-						DarkMode();
-					}
-				} else if (DarkActive){
-					DarkMode();
-				}
-			}
-		});
-	} else {
-		if (hour > 19 || hour < 7){
-			DarkMode();
-		} else if (DarkActive){
-			DarkMode();
-		}
+	if (hour > 19 || hour < 7){
+		DarkMode();
+	} else if (DarkActive){
+		DarkMode();
 	}
 });
 /* ----------------- Fin modo noche ----------------- */

@@ -17,13 +17,12 @@ $contactForm.submit(function(e) {
 
 	var msg = $('#Mensaje').val();
 	var codigoFinal = fnv32a(msg);
-	$('#CFGraP').append(' ' + codigoFinal);
 	$('#CFCodeRec').val(codigoFinal);
-	
+
 	if ($('#CFAC').prop('checked') == true){		
 		$.ajax({
 			method: "POST",
-			url: "//formspree.io/includepoetry@gmail.com",
+			url: "https://formspree.io/includepoetry@gmail.com",
 			type: 'POST',
 			data: $(this).serialize(),
 			dataType: "json",
@@ -31,6 +30,7 @@ $contactForm.submit(function(e) {
 				$submit.attr('disabled', true).val('Enviando...');
 			},
 			success: function(data) {
+				$('#CFGraP').append(' ' + codigoFinal);
 				$submit.val('Mensaje enviado');
 				setTimeout(function() {
 					$submit.attr('disabled', false).val(defaultSubmitText);

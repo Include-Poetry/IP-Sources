@@ -61,9 +61,15 @@ $("#ComentAct").click(function(event) {
 });
 /* --------- Fin Disqus comments ------- */
 
-/* --------- Disqus comments ------- */
+/* --------- Protección de email ------- */
+$('span.secOflMail').on('click', function(){
+	var a = 'include', b = 'poetry@', c = 'protonmail.com';
+	$('span.secOflMail').html(a+b+c);
+});
+/* --------- Fin Protección de email ------- */
+
+/* --------- Karel code block ------- */
 $('.karelLabel').click(function(event) {
-	// Formamos el ID a mostrar con el prefijo genérico y lo que indica el ícono
 	var bloq = '.' + $(this).attr('labFor');	
 	if (bloq == '.karelp'){
 		$('.karelj').css('display', 'none');
@@ -77,4 +83,4 @@ $('.karelLabel').click(function(event) {
 		$('.KLPascal').removeClass('karelLabelSelected');
 	} else console.log(bloq);
 });
-/* --------- Fin Disqus comments ------- */
+/* --------- Fin Karel code block ------- */
