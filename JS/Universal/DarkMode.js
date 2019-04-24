@@ -59,7 +59,7 @@ function DarkMode(){
 $(document).ready(function() {
 	var date = new Date();
 	var hour = date.getHours();
-	if (hour > 19 || hour < 7){
+	if (hour > 18 || hour < 7){
 		DarkMode();
 	} else if (DarkActive){
 		DarkMode();
