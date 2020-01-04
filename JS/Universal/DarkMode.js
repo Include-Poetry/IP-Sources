@@ -13,13 +13,18 @@ function DarkMode(){
 	$('h1, h2, h3, h4, h5, h6, h2 a').toggleClass('DrkTextB1');
 
 	$('#main p, #main dl, #main p a, #main blockquote, #main ul, #main ol, #main ul a, #main p a:not(.TagPost)').toggleClass('DrkTextB2'); 
-	$('.Nav a, #ComentAct h2, .MJXc-display').toggleClass('DrkTextB2');
-	$('html').toggleClass('DrkBgO1');
+	$('.Nav a, #ComentAct h2, .MJXc-display, #omegaList li, #omegaList span').toggleClass('DrkTextB2');
+	$('html, #navLeft').toggleClass('DrkBgO1');
+	$('#omegaDiv').toggleClass('DrkBgO3');
+	$('#omegaDiv').toggleClass('DrkSdwO1');
+	$('#omegaList li').toggleClass('DrkBordO2');
+	$('#omegaList .omegaBtn, #navRight').toggleClass('DrkBordO1');
+	$('#navLeft').toggleClass('DrkBordO3');
 	$('blockquote').toggleClass('DrkBordB1');
 	$('code, .TagPost').toggleClass('DrkBgO2 DrkBordO3');
 
 	$('table').toggleClass('DrkTextB2 DrkBgO4');
-	$('table tr:nth-child(even)').toggleClass('DrkBgO2');
+	$('table tr:nth-child(even), #omegaList .omegaBtn, #navRight').toggleClass('DrkBgO2');
 
 	// Perfil
 	$('.UPCampo, .UPDIco, .UPUIco, .UPButtons, #UKDescs, #UKList, .UPDIn, .UPUIn, #UPUIcoDesc, #UploadPic, .UPCampo .UPDNom').toggleClass('DrkBgO1 DrkBordO3 DrkTextO5');
@@ -59,7 +64,7 @@ function DarkMode(){
 $(document).ready(function() {
 	var date = new Date();
 	var hour = date.getHours();
-	if (hour > 18 || hour < 7){
+	if (hour > 17 || hour < 7){
 		DarkMode();
 	} else if (DarkActive){
 		DarkMode();
