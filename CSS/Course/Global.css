@@ -28,7 +28,7 @@ body{
 	font-family: helvetica, sans-serif;
 }
 #main{
-	overflow-y: hidden;
+	/*overflow-y: hidden;*/
 	margin-top: 80px;
 	margin-bottom: 60px;
 	margin-left: 15%;
@@ -136,12 +136,12 @@ blockquote p{
 /* Fin loaders */
 
 /* Links */
-#main p a:not(.TagPost){
+#main p a:not(.TagPost):not(.omegaBtn){
 	color: #000;
 	text-decoration: none;
 	font-family: 'Kalam', cursive;
 }
-#main p a:not(.TagPost):after{
+#main p a:not(.TagPost):not(.omegaBtn):after{
 	font-family: "Font Awesome 5 Free";
 	content: "\f35d";
 	display: inline-block;
@@ -153,13 +153,13 @@ blockquote p{
     font-size: .7em;
     font-weight: 900;
 }
-#main p a:not(.TagPost):hover{
+#main p a:not(.TagPost):not(.omegaBtn):hover{
 	text-decoration: underline;
 }
 #main p a[href$=".jpg"]:after,
 #main p a[href$=".png"]:after,
 #main p a[href$=".gif"]:after{
-	content: none;
+	content: none !important;
 }
 /*link de email-correo */
 span.secOflMail:after{
@@ -241,12 +241,12 @@ table tr:nth-child(even) {
 #main ul{
 	list-style: square;
 }
-#main ul a:not(.TagPost), #main ol a:not(.TagPost){
+#main ul a:not(.TagPost):not(.omegaBtn), #main ol a:not(.TagPost):not(.omegaBtn){
 	color: #000;
 	text-decoration: none;
 	font-family: 'Kalam', cursive;
 }
-#main ul a:not(.TagPost):after, #main ol a:not(.TagPost):after{
+#main ul a:not(.TagPost):not(.omegaBtn):after, #main ol a:not(.TagPost):not(.omegaBtn):after{
 	font-family: "Font Awesome 5 Free";
 	content: "\f35d";
 	display: inline-block;
@@ -283,6 +283,52 @@ table tr:nth-child(even) {
     font-weight: 900;
 }
 /* Fin listas de contenido */
+
+/* Problemas omegaUp */
+#omegaDiv {
+    background-color: #fff;
+	box-shadow: 0px 0px 10px 3px#88888852;
+    width: 100%;
+    margin-bottom: 40px;
+    box-sizing: border-box;
+}
+#omegaList {
+    list-style: none !important;
+    max-width: 100% !important;
+    box-sizing: border-box;
+    margin: 0px 0px;
+    padding: 0;
+}
+#omegaList li {
+    padding: 20px 20px;
+    border-bottom: 2px solid #e6e6e6;
+    color: #686868;
+}
+#omegaList li:last-child {
+	border-bottom: none;
+}
+#omegaList span {
+    font-family: 'Kalam', sans-serif;
+    margin-left: 15px;
+	color: #000;
+}
+#omegaList .omegaBtn {
+    float: right;
+    text-decoration: none;
+    color: #000;
+	font-size: 80%;
+	border: 2px solid #efefef;
+	background: #efefef;
+    padding: 4px 8px;
+    border-radius: 7px;
+    transition: all 0.1s linear;
+}
+#omegaList .omegaBtn:hover {
+    color: #fff;
+	background: #4f4f4f;
+	border-color: #4f4f4f;
+}
+/* Fin problemas omegaUp */
 
 /* Lista de problemas, topicos ... */
 #main #PostsList, #main .ListaTags{
@@ -395,41 +441,50 @@ video{
 }
 /* Navegación de temas */
 .Nav{
-	margin-top: 10px;
-	padding-top: 20px;
+	margin-top: 15px;
 	width: 100%;
-	border-top: 2px solid rgba(0,0,0,0);
 	color: #585858;
-	text-align: center;
 	font-size: 1.1em;
-	font-family: 'Kalam';
-	-webkit-transition: all 0.3s ease-in-out 0s;
-	-moz-transition: all 0.3s ease-in-out 0s;
-	-o-transition: all 0.3s ease-in-out 0s;
-	-ms-transition: all 0.3s ease-in-out 0s;
-	transition: all 0.3s ease-in-out 0s;
-}
-.Nav:hover{
-	border-top: 2px solid #585858;
+	display: inline-block;
 }
 .Nav a{
 	background: none;
-	color: #585858;
 	text-decoration: none;
+	font-family: 'Oswald', sans-serif;
 	-webkit-transition: all 0.2s ease-in-out 0s;
 	-moz-transition: all 0.2s ease-in-out 0s;
 	-o-transition: all 0.2s ease-in-out 0s;
 	-ms-transition: all 0.2s ease-in-out 0s;
 	transition: all 0.2s ease-in-out 0s;
+	border: 2px solid #ccc;
+	border-radius: 5px;
+	padding: 3px 5px;
 }
-.Nav a:hover{
-	color: #000;
+.Nav a span{
+	font-family: 'Roboto', sans-serif;
+	font-size: small;
+	display: block;
 }
-.Nav a:first-child:hover{
-	padding-right: 10px;
+.Nav #navLeft{
+	float: left;
+	text-align: left;
+	color: #585858;
 }
-.Nav a:last-child:hover{
-	padding-left: 10px;
+.Nav #navRight{
+	float: right;
+	text-align: right;
+	background-color: #ccc;
+	color: #333;
+}
+#navLeft:hover {
+	color: #333;
+	background-color: #ccc;
+	border-color: #ccc;
+}
+#navRight:hover {
+	color: #eee;
+	background-color: #4f4f4f;
+	border-color: #4f4f4f;
 }
 /* Fin navegación de temas */
 
@@ -570,60 +625,72 @@ kbd{
 }
 /* ------ Dark mode ------ */
 #main .DrkTextB1:not(.TagPost){
-	color: #fff;
+	color: #fff !important;
 }
 #main .DrkTextB2:not(.TagPost){
-	color: #ccc;
+	color: #ccc !important;
 }
 #main #PostsList .DrkTextB2:not(.TagPost){
-	color: #ccc;
+	color: #ccc !important;
 }
 #main .DrkTextB3:not(.TagPost){
-	color: #eee;
+	color: #eee !important;
 }
 #main .DrkTextO3:not(.TagPost){
-	color: #7d7c78;
+	color: #7d7c78 !important;
 }
 #main .DrkTextO4:not(.TagPost){
-	color: #555;
+	color: #555 !important;
 }
 #main .DrkTextO5:not(.TagPost){
-	color: #96989A;
+	color: #96989A !important;
 }
 #main .DrkBgB1{
-	background-color: #fff;
+	background-color: #fff !important;
 }
 #main .DrkBgO0{
-	background-color: #000;
+	background-color: #000 !important;
 }
 #main .DrkBgO1{
-	background-color: #131313;
+	background-color: #131313 !important;
 }
 .DrkBgO1{
-	background-color: #131313;
+	background-color: #131313 !important;
 }
 #main .DrkBgO2{
-	background-color: #333;
+	background-color: #333 !important;
+}
+#main .DrkBgO3{
+	background-color: #1a1a1a !important;
 }
 #main .DrkBgO4{
-	background-color: #555;
+	background-color: #555 !important;
+}
+#main .DrkSdwO1{
+	box-shadow: 0px 0px 10px 3px #00000091 !important;
 }
 #main .DrkBordB1{
-	border-color: #fff;
+	border-color: #fff !important;
+}
+#main .DrkBordO1{
+	border-color: #333 !important;
+}
+#main .DrkBordO2{
+	border-color: #111 !important;
 }
 #main .DrkBordO3{
-	border-color: #7d7c78;
+	border-color: #7d7c78 !important;
 }
 #main .DrkBtnAct{
-	color: #eee;
+	color: #eee !important;
 }
 #main .UKLISelectDrk{
-    color: #fff;
-    font-size: 1.1em;
+    color: #fff !important;
+    font-size: 1.1em !important;
 }
 #main #LIAlters .DrkBtnHov:hover, #main #SUAlters .DrkBtnHov:hover{
-	background: #333;
-	color: #fff;
+	background: #333 !important;
+	color: #fff !important;
 }
 /* ------ Fin dark mode ------ */
 
@@ -674,6 +741,9 @@ kbd{
 	}
 	.Nav{
 		font-size: .8em;
+	}
+	.Nav a span{
+		font-size: smaller;
 	}
 	#RegisterForm, #RegisterForm label, #RegisterForm input, #RegisterForm select{
 		font-size: 0.9em;
