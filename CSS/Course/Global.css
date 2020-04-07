@@ -439,6 +439,16 @@ dl dt:after {
 video{
 	max-width: 550px;
 }
+
+/* Cita o referencias */
+#cita-esta-página{
+	margin-top: 3em;
+}
+#citeThis{
+	font-size: 1.05em;
+	margin-top: -15px;
+}
+
 /* Navegación de temas */
 .Nav{
 	margin-top: 15px;
@@ -738,6 +748,9 @@ kbd{
 	}
 	.karelLabel{
 		width: 90px;
+	}
+	#citeThis{
+		font-size: .8em;
 	}
 	.Nav{
 		font-size: .8em;
