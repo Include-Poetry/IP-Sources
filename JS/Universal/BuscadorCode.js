@@ -9,7 +9,7 @@ function app(opts) {
     apiKey: 'eb04fe369bec3b6b078e4eb51ea48ae6', 
     indexName: 'MainIndexIPC',
     urlSync: false,
-  });
+  }); 
 
   search.addWidget(
     instantsearch.widgets.searchBox({
@@ -29,10 +29,20 @@ function app(opts) {
       cssClasses: {
         showmore: DrkMore
       },
-      showMoreLabel: 'Más resultados'
+      loadMoreLabel: 'Más resultados'
     })
   );
-
+/*
+  search.addWidget(
+    instantsearch.widgets.hitsPerPage({
+      container: '#items-per-page',
+      items: [
+        { label: '8 resultados por página', value: 8, default: true },
+        { label: '16 resultados por página', value: 16 },
+      ],
+    })
+  );
+*/
   search.addWidget(
     instantsearch.widgets.stats({
       container: '#stats',
@@ -95,7 +105,7 @@ function getHeader(title) {
 $(document).ready(function() {
   var d = new Date();
   var n = d.getHours();
-  if (n > 19 || n < 7){
+  if (n > 17 || n < 7){
     DrkHit = getTemplate('hit-drk');
     DrkEmpty = getTemplate('no-results-drk');
     DrkTime = 'DrkTextO3';
