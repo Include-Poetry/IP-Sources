@@ -1,4 +1,7 @@
-var bandera1 = true;
+var bandera1 = false;
+if ($('#LMN').css('display') == 'block'){
+	bandera1 = true;
+}
 var pila = [];
 var indice = 0;
 
@@ -110,3 +113,22 @@ $("nav ul li").click(function() {
 $("#MenuBackArr").click(function() {	
 	MenuLevelPop();
 });
+
+/* -------- Support message -------- */
+$(document).ready(function() {
+	// find the first <h1> element on the page
+	var h1Element = $('h1:first');
+	
+	// create the textbox element
+	var textbox = $('<div class="aux-msg">¿Te gustaría apoyar a #iP? Usa el navegador <a href="https://brave.com/es/download/">Brave</a> o comparte con tus amistades <button class="close-button">Cerrar</button></div>');
+	
+	// insert the textbox element after the <h1> element
+	h1Element.after(textbox);
+	
+	// add a click event handler to the close button
+	$('.close-button').click(function() {
+	  // remove the textbox element from the page
+	  textbox.remove();
+	});
+  });
+/* ----- End Support message ----- */

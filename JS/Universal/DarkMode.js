@@ -22,6 +22,7 @@ function DarkMode(){
 	$('#navLeft').toggleClass('DrkBordO3');
 	$('blockquote').toggleClass('DrkBordB1');
 	$('code, .TagPost').toggleClass('DrkBgO2 DrkBordO3');
+	$('.aux-msg, .aux-msg a, .aux-msg .close-button').toggleClass('DrkTextB1');
 
 	$('table').toggleClass('DrkTextB2 DrkBgO4');
 	$('table tr:nth-child(even), #omegaList .omegaBtn, #navRight').toggleClass('DrkBgO2');

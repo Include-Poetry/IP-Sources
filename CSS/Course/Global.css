@@ -135,6 +135,33 @@ blockquote p{
 }
 /* Fin loaders */
 
+/* Mensajes superiores */
+.aux-msg{
+	display: inline-block;
+    margin: 0px 2px;
+    padding: 5px 10px;
+    width: 100%;
+    color: #000;
+    border: 1px solid #5856d6;
+    border-radius: 3px;
+    background-color: #5e5ce63d;
+    font-size: 1em;
+    font-family: 'Kalam', cursive;
+}
+.aux-msg a{
+	color: #000;
+}
+.aux-msg .close-button{
+	background-color: #bf5af25e; /* vibrant fluorescent color */
+	color: #000; /* white text */
+	border: 1px solid #af52de; /* remove border */
+	padding: 5px; /* add some padding */
+	border-radius: 3px; 
+	cursor: pointer; 
+	font-size: 0.8em;
+	float: right;
+}
+
 /* Links */
 #main p a:not(.TagPost):not(.omegaBtn){
 	color: #000;
